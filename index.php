@@ -31,7 +31,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
     <!-- / Top Navigation --><!-- Logo -->
     <div id="logo">
       <h1><a href="http://www.peoplerevolution.net/">People<span>revolution</span></a></h1>
-      <p class="description">Información y cultura al alcance de todo. Proyecto SYSWEB</p>
+      <p class="description">InformaciÃ³n y cultura al alcance de todo. SYSWEB Proyecto</p>
     </div>
     <!-- / Logo -->
     <!-- Main Navigation --><!-- / Main Navigation -->
@@ -45,8 +45,8 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
             <li class="first active first-active"><a href="javascript:Enviar('inicio.php','contenido','4')">Inicio</a><span class="sep">&nbsp;</span></li>
             <li><a href="javascript:Enviar('noticias.php','contenido')">Noticias </a><span class="sep">&nbsp;</span></li>
             <li><a href="javascript:Enviar('videocast.php','contenido')">Videocast </a><span class="sep">&nbsp;</span></li>
-            <li><a href="javascript:Enviar('quien.php','contenido')">¿Quienes somos?</a><span class="sep">&nbsp;</span></li>
-            <li><a href="javascript:Enviar('unete.php','contenido')">Únete</a><span class="sep">&nbsp;</span></li>
+            <li><a href="javascript:Enviar('quien.php','contenido')">Â¿Quienes somos?</a><span class="sep">&nbsp;</span></li>
+            <li><a href="javascript:Enviar('unete.php','contenido')">Ãšnete</a><span class="sep">&nbsp;</span></li>
             <li><a href="javascript:Enviar('contacto.php','contenido')">Contacto</a><span class="sep">&nbsp;</span></li>
           </ul>
           <div class="cl">&nbsp;</div>
@@ -111,7 +111,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
             <div class="article">
               <div class="cl">&nbsp;</div>
               <div class="image"> <a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php
-                      echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto añadido\"  width=\"51\" height=\"51\"  class=alignleft >"; ?></a> </div>
+                      echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto aÃ±adido\"  width=\"51\" height=\"51\"  class=alignleft >"; ?></a> </div>
               <div class="cnt">
                 <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo $mostrador['titulo'] ?></a></h4>
                 <p><?php 
