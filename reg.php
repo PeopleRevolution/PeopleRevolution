@@ -1,0 +1,1 @@
+ <?php echo "<div style=\"background-color:orange;color:white;padding:4px;text-align:center;\"><br />Te has registrado Correctamente, ahora podras iniciar sesión como usuario registrado. Pero primero deberás validar tu cuenta en el correo que te ha sido enviado</div>"; ?>
