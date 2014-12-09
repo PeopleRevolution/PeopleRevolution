@@ -80,6 +80,9 @@ else
 </div>
             <div class="cl">&nbsp;</div>
             <p class="center"><a href="javascript:Enviar('ayuda.php','contenido')">¿Ha olvidado su contraseña?</a></p>
+			<div class="cl">&nbsp;</div>
+			<i class="fa fa-facebook-square"></i>
+			<a href="javascript:Enviar('registrofb.php', 'contenido')"</a>
     </div>
   </div>
 </div>
