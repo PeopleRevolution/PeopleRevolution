@@ -25,7 +25,7 @@ $resultado = mysql_query ("SELECT * FROM noticia where tipo='$tipo' ORDER BY fec
               <h3>Archivo de Noticias</h3>
 
               <?php } ?>
-                   <?php      if($tipo=='n')
+                   <?php      if($tipo=='v')
    { ?>
               <h3>Archivo de Videos</h3>
 
