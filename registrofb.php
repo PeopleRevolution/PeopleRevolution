@@ -1,7 +1,7 @@
 <?php 
 require 'config.php';
-require 'src/facebook.php';  // Include facebook SDK file
-$user = $facebook->getUser();
+//require 'src/facebook.php';  // Include facebook SDK file
+//$user = $facebook->getUser();
 
 if ($user) 
 {

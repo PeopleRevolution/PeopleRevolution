@@ -81,7 +81,7 @@ else
             <div class="cl">&nbsp;</div>
             <p class="center"><a href="javascript:Enviar('ayuda.php','contenido')">¿Ha olvidado su contraseña?</a></p>
 			<div class="cl">&nbsp;</div>
-			<a href="javascript:Enviar('registrofb.php', 'contenido')"> Login with facebook</a>
+			<a href="registrofb.php"> Login with facebook</a>
 
     </div>
   </div>
