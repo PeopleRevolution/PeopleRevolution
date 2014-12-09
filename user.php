@@ -83,6 +83,7 @@ else
 			<div class="cl">&nbsp;</div>
 			<i class="fa fa-facebook-square"></i>
 			<a href="javascript:Enviar('registrofb.php', 'contenido')"</a>
+
     </div>
   </div>
 </div>
