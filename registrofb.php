@@ -1,7 +1,7 @@
 <?php 
 require 'config.php';
+require 'src/facebook.php';  // Include facebook SDK file
 $user = $facebook->getUser();
-
 
 if ($user) 
 {
@@ -17,7 +17,7 @@ if ($user)
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
     //       checkuser($fbid,$fbuname,$fbfullname,$femail);    // To update local DB
-  } 
+   
   
   include("conexion.php");
 				$date= time(); 
@@ -61,7 +61,7 @@ if ($user)
 		//mando el correo...
 		mail($mail,"Registro en PeopleRevolution",$cuerpo,$cabeceras);
 	 } 
-  
+  } //try
   
   
 	catch (FacebookApiException $e) {
