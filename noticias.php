@@ -8,10 +8,10 @@ die('NO puede conetarse: ' . mysql_error());
 mysql_select_db ("$database", $conex); 
 $start = (empty($_REQUEST["start"]) ? 0 : ($_REQUEST["start"]));
 $end = 5;
-$resultado = mysql_query ("SELECT * FROM noticia where tipo='n'"); 
+$resultado = mysql_query ("SELECT * FROM noticia where tipo='v'"); 
 $filas_tot = mysql_num_rows($resultado);
 $aux=ceil($filas_tot/5);
-$resultado = mysql_query ("SELECT * FROM noticia where tipo='n' ORDER BY fecha DESC LIMIT $start, $end"); 
+$resultado = mysql_query ("SELECT * FROM noticia where tipo='v' ORDER BY fecha DESC LIMIT $start, $end"); 
 
 
    ?>
