@@ -31,7 +31,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
     <!-- / Top Navigation --><!-- Logo -->
     <div id="logo">
       <h1><a href="http://www.peoplerevolution.net/">People<span>revolution</span></a></h1>
-      <p class="description">Información y cultura al alcance de todo. SYSWEB Proyecto</p>
+      <p class="description">Información y cultura al alcance de todo - SYSWEB Proyecto</p>
 
     </div>
     <!-- / Logo -->
