@@ -22,12 +22,12 @@ $resultado = mysql_query ("SELECT * FROM noticia where tipo='$tipo' ORDER BY fec
             <div class="head-cnt">
         <?php      if($tipo=='n')
    { ?>
-              <h3>Archivo de Noticias</h3>
+              <h3>Publicaciones de Noticias</h3>
 
               <?php } ?>
                    <?php      if($tipo=='v')
    { ?>
-              <h3>Archivo de Videos</h3>
+              <h3>Publicaciones de Videos</h3>
 
               <?php } ?>
               <div class="cl">&nbsp;</div>
