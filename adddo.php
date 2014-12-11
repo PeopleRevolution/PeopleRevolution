@@ -1,5 +1,6 @@
 <?php
  include_once("conexion.php");
+ user_login();
 //smysql_query ("SET NAMES 'utf8'");
 
 if($_POST['titulo']!=""){
@@ -7,7 +8,7 @@ if($_POST['titulo']!=""){
 // Verificamos que el formulario no ha sido enviado aun 
 // errores 
 error_reporting(E_ALL); 
-# Altura de el thumbnail en p√xeles 
+# Altura de el thumbnail en p√Éxeles 
 define("ALTURA", 100); 
 # Nombre del archivo temporal del thumbnail 
 define("NAMETHUMB", "/tmp/thumbtemp"); 
@@ -22,7 +23,7 @@ $tmp_name = $_FILES["foto"]["tmp_name"];
 $size = $_FILES["foto"]["size"]; 
 if(!in_array($type, $mimetypes)) {
 	echo'<script>parent.document.getElementById("form").innerHTML="<div style=\"background-color:red;color:white;padding:4px;text-align:center;\">La imagen que has subido no es correcta.</div>";</script>';
-die("El archivo que subiste no es una Imagen v·lida"); }
+die("El archivo que subiste no es una Imagen v√°lida"); }
 switch($type) { 
 case $mimetypes[0]: 
 case $mimetypes[1]: 
@@ -83,7 +84,7 @@ VALUES
 ('$id', '$tipo', '$titulo', '$subtitulo', '$detalle', '$tfoto', '$tthumb', '$type')"; 
 mysql_query($sql, $link) or die(mysql_error($link)); 
  
-echo'<script>parent.document.getElementById("contenido").innerHTML="<div style=\"background-color:green;color:white;padding:4px;text-align:center;\">Entrada aÒadida correctamente.</div>";</script>';
+echo'<script>parent.document.getElementById("contenido").innerHTML="<div style=\"background-color:green;color:white;padding:4px;text-align:center;\">Entrada a√±adida correctamente.</div>";</script>';
 $aux = "true";
 }
 ?>
@@ -123,7 +124,7 @@ $aux = "true";
   <input name="foto" type="file" class="text" id="foto" />
 </div>
 </p>
-<button class="button button-left"  >AÒadir</button> 
+<button class="button button-left"  >A√±adir</button> 
 
 </form>
 </div>

@@ -32,7 +32,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
     <!-- / Top Navigation --><!-- Logo -->
     <div id="logo">
       <h1><a href="http://www.peoplerevolution.net/">People<span>revolution</span></a></h1>
-      <p class="description">Información y cultura al alcance de todo. SYSWEB Proyecto</p>
+      <p class="description">Información y cultura al alcance de todo - SYSWEB Proyecto</p>
 
     </div>
     <!-- / Logo -->
@@ -45,8 +45,8 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
           <div class="cl">&nbsp;</div>
           <ul>
             <li class="first active first-active"><a href="javascript:Enviar('inicio.php','contenido','4')">Inicio</a><span class="sep">&nbsp;</span></li>
-            <li><a href="javascript:Enviar('noticias.php','contenido')">Noticias </a><span class="sep">&nbsp;</span></li>
-            <li><a href="javascript:Enviar('videocast.php','contenido')">Videocast </a><span class="sep">&nbsp;</span></li>
+            <li><a href="javascript:Enviar('seccion.php?tipo=n','contenido')">Noticias </a><span class="sep">&nbsp;</span></li>
+            <li><a href="javascript:Enviar('seccion.php?tipo=v','contenido')">Videocast </a><span class="sep">&nbsp;</span></li>
             <li><a href="javascript:Enviar('quien.php','contenido')">¿Quienes somos?</a><span class="sep">&nbsp;</span></li>
             <li><a href="javascript:Enviar('unete.php','contenido')">Únete</a><span class="sep">&nbsp;</span></li>
             <li><a href="javascript:Enviar('contacto.php','contenido')">Contacto</a><span class="sep">&nbsp;</span></li>
