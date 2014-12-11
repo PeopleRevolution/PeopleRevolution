@@ -11,8 +11,9 @@ mysql_select_db("$database",$connect);
 $id = (isset($_GET["id"])) ? $_GET["id"] : exit(); 
 //$result=mysql_query("SELECT * FROM noticia WHERE id=$id",$connect);
 //borramos los registros pertenecientes a la id 
-if ($_GET["tipo"] == 'entrada')
+if ($_GET["tipo"] == 'entrada'){
 	mysql_query("delete FROM noticia WHERE id=$id",$connect);
+	mysql_query("delete FROM comentarios WHERE id=$id",$connect);}
 else
 if ($_GET["tipo"] == 'usuario')
 mysql_query("delete FROM usuarios WHERE id=$id",$connect);
