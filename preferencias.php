@@ -2,7 +2,7 @@
 include("conexion.php");
 $admin= $_SESSION['admin'];
 if ($admin == 'N'){
-echo "Lo sentimos esta pｷgina es solo para admnistradores";	
+echo "Lo sentimos esta p竏組ina es solo para admnistradores";	
 exit();
 }
 
@@ -28,7 +28,7 @@ $resultado = mysql_query ("SELECT * FROM usuarios ORDER BY fecha DESC LIMIT $sta
 <div id="correcto">
 <?php if(($start + 5) <= $filas_tot)
    {
-?>    <a href="javascript:Enviar('preferencias.php?start=<?php echo ($start + 5); ?>','contenido');">Pｷgina anterior</a>
+?>    <a href="javascript:Enviar('preferencias.php?start=<?php echo ($start + 5); ?>','contenido');">Pﾃ｡gina anterior</a>
 	  
       <?php
    }
@@ -36,14 +36,14 @@ $resultado = mysql_query ("SELECT * FROM usuarios ORDER BY fecha DESC LIMIT $sta
    if($start > 0)
    {
 	   ?>
-	<a href="javascript:Enviar('preferencias.php?start=<?php echo ($start - 5); ?>','contenido');">Pｷgina siguiente</a>
+	<a href="javascript:Enviar('preferencias.php?start=<?php echo ($start - 5); ?>','contenido');">Pﾃ｡gina siguiente</a>
 <?php
    }
 
  
     echo "<br>";
    echo "<b>";
-   echo "Pｷgina: ";
+   echo "P竏組ina: ";
    echo "</b>";
    $aux2= ($start/5) + 1;
    echo"$aux2";
@@ -71,7 +71,7 @@ else
  echo "<img src=images_bd.php?id=$mostrador[id]&tam=1&aux=usuarios height=109 weight=54 alt=\"Imagen perfil de usuario\" >"; ?></p>
       <p>Usuario: <?php echo $mostrador['nick'] ?> </p>
       <p><a href="javascript:Enviar('editaru.php?id=<?php echo $mostrador['id']; ?>','contenido');">Editar usuario</a></p>
-	  <p><a href="javascript:borrar('<?php echo $mostrador['id']; ?>','usuarios');">Borrar usuario</a></p></td>
+	  <p><a href="javascript:borrar('<?php echo $mostrador['id']; ?>','usuario');">Borrar usuario</a></p></td>
     <td width="73%" bgcolor="#0099CC" class="tablas"> <?php
         $admin= $mostrador['admin'];
 	if ($admin != 'N'){
@@ -123,7 +123,7 @@ mysql_close($conex);
    echo "<b>";
 if(($start + 5) <= $filas_tot)
    {
-?>    <a href="javascript:Enviar('preferencias.php?start=<?php echo ($start + 5); ?>','contenido');">Pｷgina anterior</a>
+?>    <a href="javascript:Enviar('preferencias.php?start=<?php echo ($start + 5); ?>','contenido');">P竏組ina anterior</a>
 	  
       <?php
    }
@@ -131,7 +131,7 @@ if(($start + 5) <= $filas_tot)
    if($start > 0)
    {
 	   ?>
-	<a href="javascript:Enviar('preferencias.php?start=<?php echo ($start - 5); ?>','contenido');">Pｷgina siguiente</a>
+	<a href="javascript:Enviar('preferencias.php?start=<?php echo ($start - 5); ?>','contenido');">P竏組ina siguiente</a>
 <?php
    }
 
@@ -139,7 +139,7 @@ if(($start + 5) <= $filas_tot)
    echo "<b>";
     echo "<br>";
    echo "<b>";
-   echo "Pｷgina: ";
+   echo "P竏組ina: ";
    echo "</b>";
    $aux2= ($start/5) + 1;
    echo"$aux2";
