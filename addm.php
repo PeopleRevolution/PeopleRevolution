@@ -31,21 +31,21 @@ if ($aux !=0){
 if(($start + 5) < $filas_tot)
    {
 ?>
-<a href="javascript:Enviar('productom.php?start=<?php echo ($start + 5); ?>','contenido');">P&aacute;gina anterior</a>
+<a href="javascript:Enviar('productom.php?start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
 <?php
    }
 
    if($start > 0)
    {
 	   ?>
-<a href="javascript:Enviar('productom.php?start=<?php echo ($start - 5); ?>','contenido');">P&aacute;gina siguiente</a>
+<a href="javascript:Enviar('productom.php?start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
 <?php
    }
 
  
     echo "<br>";
    echo "<b>";
-   echo "P&aacute;gina: ";
+   echo "Página: ";
    echo "</b>";
    $aux2= ($start/5) + 1;
    echo"$aux2";
@@ -72,11 +72,14 @@ if(($start + 5) < $filas_tot)
   <?php
 while($mostrador = mysql_fetch_array($resultado)) 
 { 
-if($mostrador['id']%2){
+	if($mostrador['id']%2)
+		$color="#669933";
+	else
+ 		$color="#B7E73A";
 ?>
               <tr>
     <td width="27%"><?php echo "<img src=images_bd.php?id=$mostrador[id]&tam=1&aux=noticia alt=\"Imagen producto\" height=279 width=432>"?></td>
-    <td width="73%" bgcolor="#669933" class="tablas"> <p><?php echo $mostrador['titulo'] ?></p>
+    <td width="73%" bgcolor="<?php echo $color; ?>" class="tablas"> <p><?php echo $mostrador['titulo'] ?></p>
     <p><?php echo $mostrador['cop'] ?></p>
     <p><?php echo $mostrador['precio'] ?></p>
     <p><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');">Detallar entrada</a></p>
@@ -86,23 +89,10 @@ if($mostrador['id']%2){
 	 <?php } ?>
     </td>
   </tr>
-<?php  }else{?>
-<tr>
-    <td width="27%"><?php echo "<img src=images_bd.php?id=$mostrador[id]&tam=1&aux=noticia alt=\"Imagen producto\" height=279 width=432>"?></td>
-    <td width="73%" bgcolor="#B7E73A" class="tablas"> <p><?php echo $mostrador['titulo'] ?></p>
-    <p><?php echo $mostrador['coop'] ?></p>
-    <p><?php echo $mostrador['precio'] ?></p>
-   <p><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');">Detallar entrada</a></p>
-   <?php if(isset($_SESSION['id'])){?>
-       <p><a href="javascript:Enviar('editar.php?id=<?php echo $mostrador['id']; ?>','contenido');">Editar entrada</a></p>
-       	  <p><a href="javascript:borrar('<?php echo $mostrador['id']; ?>','producto');">Borrar entrada</a></p>
-       <?php } ?>
-    </td>
-  </tr>
+
+
   
 <?php
-
-}
 } 
 mysql_close($conex); 
 ?>
@@ -120,14 +110,14 @@ mysql_close($conex);
 if(($start + 5) < $filas_tot)
    {
 ?>
-  <a href="javascript:Enviar('producto.php?start=<?php echo ($start + 5); ?>','contenido');">P&aacute;gina anterior</a>
+  <a href="javascript:Enviar('producto.php?start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
   <?php
    }
 
    if($start > 0)
    {
 	   ?>
-  <a href="javascript:Enviar('producto.php?start=<?php echo ($start - 5); ?>','contenido');">P&aacute;gina siguiente</a>
+  <a href="javascript:Enviar('producto.php?start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
   <?php
    }
 
@@ -135,7 +125,7 @@ if(($start + 5) < $filas_tot)
    echo "<b>";
     echo "<br>";
    echo "<b>";
-   echo "P&aacute;gina: ";
+   echo "Página: ";
    echo "</b>";
    $aux2= ($start/5) + 1;
    echo"$aux2";
@@ -147,6 +137,6 @@ if(($start + 5) < $filas_tot)
    echo "<br>";
    echo "<b>";}
    else 
-   	echo "<div style=\"background-color:red;color:white;padding:4px;text-align:center;\"><p>No hay productos</p></div>";
+   	echo "<div style=\"background-color:red;color:white;padding:4px;text-align:center;\"><p>No hay registros</p></div>";
    ?>
 </span></p>
