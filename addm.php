@@ -81,7 +81,7 @@ if($mostrador['id']%2){
     <p><?php echo $mostrador['precio'] ?></p>
     <p><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');">Detallar entrada</a></p>
    <?php if(isset($_SESSION['id'])){?>
-     <p><a href="javascript:Enviar('editar.php?id=<?php echo $mostrador['id']; ?>','contenido');">Editar entrada</a></p>
+     <p><a href="javascript:Enviar('edicion.php?ed=edit&id=<?php echo $mostrador['id']; ?>','contenido');">Editar entrada</a></p>
 	  <p><a href="javascript:borrar('<?php echo $mostrador['id']; ?>','producto');">Borrar entrada</a></p>
 	 <?php } ?>
     </td>

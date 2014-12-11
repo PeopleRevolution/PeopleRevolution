@@ -2,7 +2,7 @@
       <div class="block-bot">
           <div class="head">
             <div class="head-cnt">
-              <h3>A&ntilde;adir Entrada</h3>
+              <h3>Añadir Entrada</h3>
       
             </div>
           </div>
