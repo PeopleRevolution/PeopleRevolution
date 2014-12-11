@@ -93,7 +93,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 <div id="log">
 
 
-  </div>
+</div>
 </div>
       <!-- / Sign In -->
      
