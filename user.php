@@ -73,7 +73,7 @@ else
               <p>&nbsp; </p>
             </div>
           <button class="button button-left"  >Conectar</button> 
-          <a href="javascript:Enviar('registro.php','contenido')" class="button button-right">Crear Cuenta</a>
+          <button onclick="location.href='javascript:Enviar('registro.php','contenido')'" class="button button-right">Crear Cuenta</button>
         </form>
 		
 		<div class="cl">&nbsp;</div>
