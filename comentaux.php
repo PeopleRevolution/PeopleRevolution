@@ -30,7 +30,7 @@ if($filas_tot !=0){
           
 if(($start + 5) < $filas_tot)
    {
-?>    <a href="javascript:Enviar('detalle.php?id=<?php echo $id;?>&start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
+?>    <a href="javascript:Enviar('detalle.php?id=<?php echo $id;?>&start=<?php echo ($start + 5); ?>','contenido');">P‡gina anterior</a>
 	  
       <?php
    }
@@ -38,7 +38,7 @@ if(($start + 5) < $filas_tot)
    if($start > 0)
    {
 	   ?>
-	<a href="javascript:Enviar('detalle.php?id=<?php echo $id;?>&start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
+	<a href="javascript:Enviar('detalle.php?id=<?php echo $id;?>&start=<?php echo ($start - 5); ?>','contenido');">P‡gina siguiente</a>
 <?php
    }
     echo "<br>";
