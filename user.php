@@ -73,13 +73,22 @@ else
               <p>&nbsp; </p>
             </div>
           <button class="button button-left"  >Conectar</button> 
-          <a href="javascript:Enviar('registro.php','contenido')" class="button button-right">Crear Cuenta</a>
+          <button onclick="location.href='javascript:Enviar('registro.php','contenido')'" class="button button-right">Crear Cuenta</button>
         </form>
-
-</div>
-</div>
-            <div class="cl">&nbsp;</div>
+		
+		<div class="cl">&nbsp;</div>
             <p class="center"><a href="javascript:Enviar('ayuda.php','contenido')">¿Ha olvidado su contraseña?</a></p>
+			<div class="cl">&nbsp;</div>
+			<ul class="icons">
+					<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="registrofb.php" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+					
+			</ul>
+
+	</div>
+	</div>
+            
+
     </div>
   </div>
 </div>

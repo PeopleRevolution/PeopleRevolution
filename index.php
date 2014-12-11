@@ -15,6 +15,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 <head>
 <title>People Revolution</title>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <!--[if IE 6]><link rel="stylesheet" href="css/ie6-style.css" type="text/css" media="all" /><![endif]-->
 <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
 <script src="js/fns.js" type="text/javascript"></script>
@@ -92,7 +93,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 <div id="log">
 
 
-  </div>
+</div>
 </div>
       <!-- / Sign In -->
      
