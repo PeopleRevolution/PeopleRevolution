@@ -73,8 +73,8 @@ if ($user) {
 	header("Location: index.php");
 } else {
  //$loginUrl = $facebook->getLoginUrl(array(
-		'scope'		=> 'email', // Permissions to request from the user
-		));
+		//'scope'		=> 'email', // Permissions to request from the user
+		//));
  header("Location: index.php");
 }
 
