@@ -1,5 +1,6 @@
 <?php
-    include_once("config.php"); 
+    include_once("config.php");
+    include("paginator.php"); 
 $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
 { 
@@ -36,33 +37,7 @@ $resultado = mysql_query ("SELECT * FROM noticia where tipo='$tipo' ORDER BY fec
           <div class="row-articles articles">
             <?php      
             if ($aux !=0){
-if(($start + 5) < $filas_tot)
-   {
-?>    <a href="javascript:Enviar('noticias.php?start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
-	  
-      <?php
-   }
-
-   if($start > 0)
-   {
-	   ?>
-	<a href="javascript:Enviar('noticias.php?start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
-<?php
-   }
-
- 
-    echo "<br>";
-   echo "<b>";
-   echo "Página: ";
-   echo "</b>";
-   $aux2= ($start/5) + 1;
-   echo"$aux2";
-   echo "<b>";
-   echo " de ";
-   echo "</b>";
-   echo "$aux";
-   echo "</br>";
-     echo "<br>";
+ paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0');
             
             while($mostrador = mysql_fetch_array($resultado)) 
 if ($mostrador != ""){ $aux3 = "true";
@@ -90,7 +65,8 @@ if ($mostrador != ""){ $aux3 = "true";
 							else {
 							echo $aux;
 							}?></p>
-                <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer Más</a></pre>
+                <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer M‡s</a></pre>
+				<a target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.peoplerevolution.net?id=<?php echo $mostrador['id']; ?>">Compartir FB</a>
               </div>
               <div class="cl">&nbsp;</div>
             </div>

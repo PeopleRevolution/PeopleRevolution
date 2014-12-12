@@ -22,7 +22,17 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 <script type="text/javascript" src="js/ajax.js"></script>
 <script src="js/ckeditor.js"></script>
 </head>
-<body onload="javascript:Enviar('inicio.php','contenido');javascript:Enviar('user.php','log')">
+<?php if($_GET['entrada'] !=""){
+			if($_GET['id'] !=""){
+				$sec=$_GET['entrada'].'.php?id='.$_GET['id'];}
+				else{
+				$sec=$_GET['entrada'].'.php';}
+		
+		}
+	  else{
+	  $sec='inicio.php';}
+ ?>
+<body onload="javascript:Enviar('<?php echo $sec; ?>','contenido');javascript:Enviar('user.php','log')">
 <!-- Page -->
 <div id="page" class="shell">
   <!-- Header -->
