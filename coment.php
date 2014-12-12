@@ -1,5 +1,6 @@
 <?php 
   include_once("config.php"); 
+  include("paginator.php");
   $id = $_GET["id"]; 
 $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
@@ -27,33 +28,7 @@ if($filas_tot !=0){
             </div>
           </div>
           <div class="row-articles articles">
-          <?php 
-          
-if(($start + 5) < $filas_tot)
-   {
-?>    <a href="javascript:Enviar('detalle.php?id=<?php echo $id;?>&start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
-	  
-      <?php
-   }
-
-   if($start > 0)
-   {
-	   ?>
-	<a href="javascript:Enviar('detalle.php?id=<?php echo $id;?>&start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
-<?php
-   }
-    echo "<br>";
-   echo "<b>";
-   echo "Página: ";
-   echo "</b>";
-   $aux2= ($start/5) + 1;
-   echo"$aux2";
-   echo "<b>";
-   echo " de ";
-   echo "</b>";
-   echo "$aux";
-   echo "</br>";
-   ?>
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,$id); ?>
 <?php while($mostrador = mysql_fetch_array($resultado2)) {
  ?>
  <div class="article">
