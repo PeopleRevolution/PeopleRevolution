@@ -91,7 +91,7 @@ if ($mostrador != ""){ $aux3 = "true";
 							echo $aux;
 							}?></p>
                 <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer Más</a></pre>
-				<div class="fb-like" data-href="http://peoplerecolution.net" data-width="292" data-send="true"></div>
+				<a target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.peoplerevolution.net/">Compartir FB</a>
               </div>
               <div class="cl">&nbsp;</div>
             </div>
