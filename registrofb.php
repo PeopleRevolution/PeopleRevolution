@@ -1,5 +1,4 @@
 <?php 
-include("conexion.php");
 require 'config.php';
 //require 'src/facebook.php';  // Include facebook SDK file
 //$user = $facebook->getUser();
@@ -13,13 +12,13 @@ if ($user)
  	    $fbfullname = $user_profile['name']; // To Get Facebook full name
 	    $femail = $user_profile['email'];    // To Get Facebook email ID
 	/* ---- Session Variables -----*/
-	    $_SESSION['id'] = $fbid;           
+	    $_SESSION['FBID'] = $fbid;           
 	    $_SESSION['USERNAME'] = $fbuname;
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
     //       checkuser($fbid,$fbuname,$fbfullname,$femail);    // To update local DB
    
-  
+  include("conexion.php");
 				$date= time(); 
 				$nick= $_SESSION['FULLNAME'];
 				$mail= $_SESSION['EMAIL'];
@@ -65,7 +64,7 @@ if ($user)
   
 	catch (FacebookApiException $e) {
     error_log($e);
-   $user = null;
+   //$user = null;
   }
 }
 
