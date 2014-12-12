@@ -28,7 +28,7 @@ if ($user)
 				$ipuser= $_SERVER['REMOTE_ADDR'];            
 
 				$b_user= mysql_query("SELECT nick FROM usuarios WHERE nick='$nick'");
-				if($user=@mysql_fetch_array($b_user))
+				if($user_reg=@mysql_fetch_array($b_user))
 				{
 					echo '<br />El nombre de usuario o el email ya esta registrado.';
 					mysql_free_result($b_user); //liberamos la memoria del query a la db
@@ -72,10 +72,10 @@ if ($user)
 if ($user) {
 	header("Location: index.php");
 } else {
- //$loginUrl = $facebook->getLoginUrl(array(
-		//'scope'		=> 'email', // Permissions to request from the user
-		//));
- header("Location: index.php");
+ $loginUrl = $facebook->getLoginUrl(array(
+		'scope'		=> 'email', // Permissions to request from the user
+		));
+ header("Location: ".$loginUrl);
 }
 
 ?>
