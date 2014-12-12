@@ -23,7 +23,7 @@ if ($user)
 				$date= time(); 
 				$nick= $_SESSION['FULLNAME'];
 				$mail= $_SESSION['EMAIL'];
-				$auxr=echo rand();
+				$auxr=rand();
 				$pass= md5(md5($auxr));
 				$admin= "N";
 				$ipuser= $_SERVER['REMOTE_ADDR'];            
