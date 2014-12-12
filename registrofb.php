@@ -20,11 +20,12 @@ if ($user)
    
   include("conexion.php");
 				$date= time(); 
-				$nick= $_SESSION['USERNAME'];
+				$nick= $_SESSION['FULLNAME'];
 				$mail= $_SESSION['EMAIL'];
 				$auxr=rand();
 				$pass= md5(md5($auxr));
 				$admin= "N";
+				$verificar= "S";
 				$ipuser= $_SERVER['REMOTE_ADDR'];  
 				
 				$b_user= mysql_query("SELECT nick FROM usuarios WHERE nick='$nick'");
@@ -35,7 +36,7 @@ if ($user)
 				}
 				else
 				{
-			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin) values ('$date','$nick','$mail','$pass','$ipuser','$admin')");
+			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin,verificar) values ('$date','$nick','$mail','$pass','$ipuser','$admin','$verificar')");
 if($mail !="")
 {
     $b_user=mysql_query("SELECT * FROM usuarios WHERE mail='$mail'");    
