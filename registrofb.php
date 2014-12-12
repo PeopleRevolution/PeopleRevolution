@@ -20,7 +20,7 @@ if ($user)
    
   include("conexion.php");
 				$date= time(); 
-				$nick= $_SESSION['FULLNAME'];
+				$nick= $_SESSION['USERNAME'];
 				$mail= $_SESSION['EMAIL'];
 				$auxr=rand();
 				$pass= md5(md5($auxr));
