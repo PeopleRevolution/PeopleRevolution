@@ -36,7 +36,7 @@ if ($user)
 				}
 				else
 				{
-			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin,verificar) values ('$date','$nick','$mail','$pass','$ipuser','$admin','$verificar')");
+			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin,verificar) values ('$date','$nick','$mail','$auxr','$ipuser','$admin','$verificar')");
 if($mail !="")
 {
     $b_user=mysql_query("SELECT * FROM usuarios WHERE mail='$mail'");    
