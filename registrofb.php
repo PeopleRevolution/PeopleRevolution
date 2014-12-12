@@ -36,7 +36,7 @@ if ($user)
 				}
 				else
 				{
-			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin,verificar) values ('$date','$nick','$mail','$auxr','$ipuser','$admin','$verificar')");
+			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin,verificar) values ('$date','$nick','$mail','$pass','$ipuser','$admin','$verificar')");
 if($mail !="")
 {
     $b_user=mysql_query("SELECT * FROM usuarios WHERE mail='$mail'");    
@@ -64,7 +64,7 @@ if($ses['pass'] == $pass)
 		$cuerpo .= "<p>Estos son tus datos de registro:</p>";
 		$cuerpo .= "<p>Usuario " . $nick . "</p>";
 		$cuerpo .= "<p>Email: " . $mail . "</p>";
-		$cuerpo .= "<p>Contraseña: " . $pass . "</p>";
+		$cuerpo .= "<p>Contraseña: " . $auxr . "</p>";
 
 		$cuerpo .= "<p>Ahora puedes empezar a disfrutar en nuestro sitio, podrás comentar y participar en nuestro site. Esperamos que tengas una feliz estancia.</p>";
 
