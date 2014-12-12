@@ -25,8 +25,9 @@ if ($user)
 				$auxr=rand();
 				$pass= md5(md5($auxr));
 				$admin= "N";
-				$ipuser= $_SERVER['REMOTE_ADDR'];            
-
+				$verificar= "S";
+				$ipuser= $_SERVER['REMOTE_ADDR'];  
+				
 				$b_user= mysql_query("SELECT nick FROM usuarios WHERE nick='$nick'");
 				if($user_reg=@mysql_fetch_array($b_user))
 				{
@@ -35,14 +36,35 @@ if ($user)
 				}
 				else
 				{
-			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin) values ('$date','$nick','$mail','$pass','$ipuser','$admin')");
+			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin,verificar) values ('$date','$nick','$mail','$pass','$ipuser','$admin','$verificar')");
+if($mail !="")
+{
+    $b_user=mysql_query("SELECT * FROM usuarios WHERE mail='$mail'");    
+    $ses = @mysql_fetch_assoc($b_user) ;
+    if(@mysql_num_rows($b_user))
+    {
+if($ses['pass'] == $pass)
+        {    
+        
+        
+            $_SESSION['id']=        $ses["id"];
+            $_SESSION['fecha']=    $ses["fecha"];
+            $_SESSION['nick']=    $ses["nick"];
+            $_SESSION['mail']=    $ses["mail"];
+            $_SESSION['ip']=        $ses["ip"];
+            $_SESSION['admin']=     $ses["admin"];
+			$_SESSION[foto]=     $ses[foto];
+        
+
+} } }        
+
 			 
 			 //Estoy recibiendo el formulario, compongo el cuerpo
 		$cuerpo = "<h1>Bienvenido a la página de PeopleRevolution</h1>";
 		$cuerpo .= "<p>Estos son tus datos de registro:</p>";
 		$cuerpo .= "<p>Usuario " . $nick . "</p>";
 		$cuerpo .= "<p>Email: " . $mail . "</p>";
-		$cuerpo .= "<p>Contraseña: " . $pass . "</p>";
+		$cuerpo .= "<p>Contraseña: " . $auxr . "</p>";
 
 		$cuerpo .= "<p>Ahora puedes empezar a disfrutar en nuestro sitio, podrás comentar y participar en nuestro site. Esperamos que tengas una feliz estancia.</p>";
 
