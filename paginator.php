@@ -1,8 +1,8 @@
 <?php 
-function paginator($url,$start,$filas_tot,$aux) {
+function paginator($url,$start,$filas_tot,$aux,$id) {
 if(($start + 5) <= $filas_tot)
    {
-?>    <a href="javascript:Enviar('<?php echo $url; ?>?start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
+?>    <a href="javascript:Enviar('<?php echo $url; ?>?id=<?php echo $id ?>&start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
 	  
       <?php
    }
@@ -10,7 +10,7 @@ if(($start + 5) <= $filas_tot)
    if($start > 0)
    {
 	   ?>
-	<a href="javascript:Enviar('<?php echo $url; ?>?start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
+	<a href="javascript:Enviar('<?php echo $url; ?>?id=<?php echo $id ?>&start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
 <?php
    }
 

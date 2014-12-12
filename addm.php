@@ -27,7 +27,7 @@ $resultado = mysql_query ("SELECT * FROM noticia ORDER BY fecha DESC LIMIT $star
 
 ?>
 <p><span class="row-articles articles">
-<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux); ?>
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
 </span></p>
 <div id="correcto">
 <div class="block">
@@ -73,5 +73,5 @@ mysql_close($conex);
 </div>
 </div>
 <p><span class="row-articles articles">
-<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux); ?>
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
 </span></p>

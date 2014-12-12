@@ -28,7 +28,7 @@ if($filas_tot !=0){
             </div>
           </div>
           <div class="row-articles articles">
-<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux); ?>
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,$id); ?>
 <?php while($mostrador = mysql_fetch_array($resultado2)) {
  ?>
  <div class="article">

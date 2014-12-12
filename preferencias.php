@@ -28,7 +28,7 @@ $resultado = mysql_query ("SELECT * FROM usuarios ORDER BY fecha DESC LIMIT $sta
 <p><span class="titulo"><u>USUARIOS REGISTRADOS:</u></span></p>
 <div id="correcto">
 
-<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux); ?>
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
 <table width="93%" border="1" align="center" cellpadding="0" cellspacing="0" class="tablas">
 <?php
 while($mostrador = mysql_fetch_array($resultado)) 
@@ -89,6 +89,6 @@ else
 mysql_close($conex); 
 ?>
 </table>
-<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux); ?>
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
 
 </div>
