@@ -1,4 +1,5 @@
 <?php 
+include("conexion.php");
 require 'config.php';
 //require 'src/facebook.php';  // Include facebook SDK file
 //$user = $facebook->getUser();
@@ -12,18 +13,18 @@ if ($user)
  	    $fbfullname = $user_profile['name']; // To Get Facebook full name
 	    $femail = $user_profile['email'];    // To Get Facebook email ID
 	/* ---- Session Variables -----*/
-	    $_SESSION['FBID'] = $fbid;           
+	    $_SESSION['id'] = $fbid;           
 	    $_SESSION['USERNAME'] = $fbuname;
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
     //       checkuser($fbid,$fbuname,$fbfullname,$femail);    // To update local DB
    
   
-  include("conexion.php");
 				$date= time(); 
 				$nick= $_SESSION['FULLNAME'];
 				$mail= $_SESSION['EMAIL'];
-				$pass= md5(md5($_SESSION['FULLNAME']));
+				$auxr=echo rand();
+				$pass= md5(md5($auxr));
 				$admin= "N";
 				$ipuser= $_SERVER['REMOTE_ADDR'];            
 
@@ -42,6 +43,7 @@ if ($user)
 		$cuerpo .= "<p>Estos son tus datos de registro:</p>";
 		$cuerpo .= "<p>Usuario " . $nick . "</p>";
 		$cuerpo .= "<p>Email: " . $mail . "</p>";
+		$cuerpo .= "<p>Contraseña: " . $pass . "</p>";
 
 		$cuerpo .= "<p>Ahora puedes empezar a disfrutar en nuestro sitio, podrás comentar y participar en nuestro site. Esperamos que tengas una feliz estancia.</p>";
 
@@ -53,10 +55,7 @@ if ($user)
 	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 	// Cabeceras adicionales
-	//$cabeceras .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
 	$cabeceras .= 'From: PeopleRevolution <admin@peoplerevolution.net>' . "\r\n";
-	//$cabeceras .= 'Cc: birthdayarchive@example.com' . "\r\n";
-	//$cabeceras .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 
 		//mando el correo...
 		mail($mail,"Registro en PeopleRevolution",$cuerpo,$cabeceras);
@@ -66,7 +65,7 @@ if ($user)
   
 	catch (FacebookApiException $e) {
     error_log($e);
-   $user = null;
+  // $user = null;
   }
 }
 
