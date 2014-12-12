@@ -72,10 +72,10 @@ if ($user)
 if ($user) {
 	header("Location: index.php");
 } else {
- $loginUrl = $facebook->getLoginUrl(array(
+ //$loginUrl = $facebook->getLoginUrl(array(
 		'scope'		=> 'email', // Permissions to request from the user
 		));
- header("Location: ".$loginUrl);
+ header("Location: index.php");
 }
 
 ?>
