@@ -65,7 +65,7 @@ if ($user)
   
 	catch (FacebookApiException $e) {
     error_log($e);
-  // $user = null;
+   $user = null;
   }
 }
 
