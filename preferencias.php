@@ -1,8 +1,9 @@
 <?php include_once("config.php"); 
 include("conexion.php");
+include("paginator.php");
 $admin= $_SESSION['admin'];
 if ($admin == 'N'){
-echo "Lo sentimos esta p∑gina es solo para admnistradores";	
+echo "Lo sentimos esta página es solo para admnistradores";	
 exit();
 }
 
@@ -26,36 +27,8 @@ $resultado = mysql_query ("SELECT * FROM usuarios ORDER BY fecha DESC LIMIT $sta
 ?>
 <p><span class="titulo"><u>USUARIOS REGISTRADOS:</u></span></p>
 <div id="correcto">
-<?php if(($start + 5) <= $filas_tot)
-   {
-?>    <a href="javascript:Enviar('preferencias.php?start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
-	  
-      <?php
-   }
 
-   if($start > 0)
-   {
-	   ?>
-	<a href="javascript:Enviar('preferencias.php?start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
-<?php
-   }
-
- 
-    echo "<br>";
-   echo "<b>";
-   echo "P∑gina: ";
-   echo "</b>";
-   $aux2= ($start/5) + 1;
-   echo"$aux2";
-   echo "<b>";
-   echo " de ";
-   echo "</b>";
-   echo "$aux";
-   echo "</br>";
-     echo "<br>";
-   echo "<b>";
-   ?>
-
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux); ?>
 <table width="93%" border="1" align="center" cellpadding="0" cellspacing="0" class="tablas">
 <?php
 while($mostrador = mysql_fetch_array($resultado)) 
@@ -116,39 +89,6 @@ else
 mysql_close($conex); 
 ?>
 </table>
-<?php 
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux); ?>
 
-  echo "<b>";
-    echo "<br>";
-   echo "<b>";
-if(($start + 5) <= $filas_tot)
-   {
-?>    <a href="javascript:Enviar('preferencias.php?start=<?php echo ($start + 5); ?>','contenido');">P∑gina anterior</a>
-	  
-      <?php
-   }
-
-   if($start > 0)
-   {
-	   ?>
-	<a href="javascript:Enviar('preferencias.php?start=<?php echo ($start - 5); ?>','contenido');">P∑gina siguiente</a>
-<?php
-   }
-
-   
-   echo "<b>";
-    echo "<br>";
-   echo "<b>";
-   echo "P∑gina: ";
-   echo "</b>";
-   $aux2= ($start/5) + 1;
-   echo"$aux2";
-   echo "<b>";
-   echo " de ";
-   echo "</b>";
-   echo "$aux";
-   echo "</br>";
-   echo "<br>";
-   echo "<b>";
-   ?>
 </div>
