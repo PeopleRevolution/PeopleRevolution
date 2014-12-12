@@ -1,5 +1,6 @@
 <?php include_once("config.php"); 
 include("conexion.php");
+include("paginator.php");
 $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
 { 
@@ -26,37 +27,7 @@ $resultado = mysql_query ("SELECT * FROM noticia ORDER BY fecha DESC LIMIT $star
 
 ?>
 <p><span class="row-articles articles">
-<?php 
-if ($aux !=0){
-if(($start + 5) < $filas_tot)
-   {
-?>
-<a href="javascript:Enviar('productom.php?start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
-<?php
-   }
-
-   if($start > 0)
-   {
-	   ?>
-<a href="javascript:Enviar('productom.php?start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
-<?php
-   }
-
- 
-    echo "<br>";
-   echo "<b>";
-   echo "Página: ";
-   echo "</b>";
-   $aux2= ($start/5) + 1;
-   echo"$aux2";
-   echo "<b>";
-   echo " de ";
-   echo "</b>";
-   echo "$aux";
-   echo "</br>";
-     echo "<br>";
-   echo "<b>";
-   ?>
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux); ?>
 </span></p>
 <div id="correcto">
 <div class="block">
@@ -102,41 +73,5 @@ mysql_close($conex);
 </div>
 </div>
 <p><span class="row-articles articles">
-  <?php 
-
-  echo "<b>";
-    echo "<br>";
-   echo "<b>";
-if(($start + 5) < $filas_tot)
-   {
-?>
-  <a href="javascript:Enviar('producto.php?start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
-  <?php
-   }
-
-   if($start > 0)
-   {
-	   ?>
-  <a href="javascript:Enviar('producto.php?start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
-  <?php
-   }
-
-   
-   echo "<b>";
-    echo "<br>";
-   echo "<b>";
-   echo "Página: ";
-   echo "</b>";
-   $aux2= ($start/5) + 1;
-   echo"$aux2";
-   echo "<b>";
-   echo " de ";
-   echo "</b>";
-   echo "$aux";
-   echo "</br>";
-   echo "<br>";
-   echo "<b>";}
-   else 
-   	echo "<div style=\"background-color:red;color:white;padding:4px;text-align:center;\"><p>No hay registros</p></div>";
-   ?>
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux); ?>
 </span></p>
