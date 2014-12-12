@@ -58,13 +58,14 @@ if ($user)
 
 		//mando el correo...
 		mail($mail,"Registro en PeopleRevolution",$cuerpo,$cabeceras);
+		header("Location: index.php");
 	 } 
   } //try
   
   
 	catch (FacebookApiException $e) {
     error_log($e);
-   //$user = null;
+   $user = null;
   }
 }
 
