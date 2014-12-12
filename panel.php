@@ -59,7 +59,7 @@ else{
               <td width="20%"><img src="imagenes/16581346-logout-blue-glossy-icon-on-white-background.jpg" alt="Boton de desconectar" width="110" height="100" /></td>
     </tr>
             <tr>
-              <td><a href="javascript:Enviar('add.php','contenido')">Añadir Entrada</a></td>
+              <td><a href="javascript:Enviar('edicion.php?ed=add','contenido')">A–adir Entrada</a></td>
               <td><a href="javascript:Enviar('addm.php','contenido')">Modificar/Borrar Entrada</a></td>
              <td><a href="javascript:Enviar('editaru.php','contenido');">Preferencias</a></td>			
              <td><a href="javascript:Enviar('preferencias.php','contenido')">Administrar</a></td> 

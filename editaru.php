@@ -21,7 +21,7 @@ mysql_select_db("$database",$connect);
 
 if(isset($_POST['nick'])){
 error_reporting(E_ALL); 
-# Altura de el thumbnail en p�xeles 
+# Altura de el thumbnail en pÃxeles 
 define("ALTURA", 100); 
 # Nombre del archivo temporal del thumbnail 
 define("NAMETHUMB", "/tmp/thumbtemp"); 
@@ -37,7 +37,7 @@ $tmp_name = $_FILES["foto"]["tmp_name"];
 $size = $_FILES["foto"]["size"]; 
 if(!in_array($type, $mimetypes)) {
 	echo'<script>parent.document.getElementById("mensaje").innerHTML="<div style=\"background-color:red;color:white;padding:4px;text-align:center;\">La imagen que has subido no es correcta.</div>";</script>';
-die("El archivo que subiste no es una Imagen v�lida"); }
+die("El archivo que subiste no es una Imagen válida"); }
 switch($type) { 
 case $mimetypes[0]: 
 case $mimetypes[1]: 
@@ -156,11 +156,11 @@ while($row=mysql_fetch_array($result)) { ?>
 <p>Email:<br />
   <input name="mail" type="text" class="text" id="mail" value="<?php echo $row[mail] ?>" /> 
 </p>
-<p>Introduce nueva contrase&ntilde;a para cambiarla o dejala en blanco</p> 
-<p>Nueva Contrase�a (de m&aacute;s de 6 caracteres):<br />
+<p>Introduce nueva contraseña para cambiarla o dejala en blanco</p> 
+<p>Nueva Contraseña (de más de 6 caracteres):<br />
   <input name="pass" type="password" class="text" id="pass" /> 
 </p> 
-<p> Repite la contrase�a: <br />
+<p> Repite la contraseña: <br />
 <input name="pass2" type="password" class="text" id="pass2" /> 
 </p>
 

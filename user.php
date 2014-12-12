@@ -33,7 +33,7 @@ else{
               <a href="javascript:Enviar('login.php','contenido','9');"><font
 id=9>Panel de control</a>
               |<?php if ($_SESSION['admin'] == 'S'){?>
-              <a href="javascript:Enviar('add.php','contenido','10')"><font
+              <a href="javascript:Enviar('edicion.php?ed=add','contenido','10')"><font
 id=10>Publicar</a></h4>
             <?php }?></div>
 

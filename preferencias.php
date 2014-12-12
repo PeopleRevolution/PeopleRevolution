@@ -1,8 +1,9 @@
 <?php include_once("config.php"); 
 include("conexion.php");
+include("paginator.php");
 $admin= $_SESSION['admin'];
 if ($admin == 'N'){
-echo "Lo sentimos esta p·gina es solo para admnistradores";	
+echo "Lo sentimos esta pÃ¡gina es solo para admnistradores";	
 exit();
 }
 
@@ -26,36 +27,8 @@ $resultado = mysql_query ("SELECT * FROM usuarios ORDER BY fecha DESC LIMIT $sta
 ?>
 <p><span class="titulo"><u>USUARIOS REGISTRADOS:</u></span></p>
 <div id="correcto">
-<?php if(($start + 5) <= $filas_tot)
-   {
-?>    <a href="javascript:Enviar('preferencias.php?start=<?php echo ($start + 5); ?>','contenido');">P·gina anterior</a>
-	  
-      <?php
-   }
 
-   if($start > 0)
-   {
-	   ?>
-	<a href="javascript:Enviar('preferencias.php?start=<?php echo ($start - 5); ?>','contenido');">P·gina siguiente</a>
-<?php
-   }
-
- 
-    echo "<br>";
-   echo "<b>";
-   echo "P·gina: ";
-   echo "</b>";
-   $aux2= ($start/5) + 1;
-   echo"$aux2";
-   echo "<b>";
-   echo " de ";
-   echo "</b>";
-   echo "$aux";
-   echo "</br>";
-     echo "<br>";
-   echo "<b>";
-   ?>
-
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
 <table width="93%" border="1" align="center" cellpadding="0" cellspacing="0" class="tablas">
 <?php
 while($mostrador = mysql_fetch_array($resultado)) 
@@ -71,7 +44,7 @@ else
  echo "<img src=images_bd.php?id=$mostrador[id]&tam=1&aux=usuarios height=109 weight=54 alt=\"Imagen perfil de usuario\" >"; ?></p>
       <p>Usuario: <?php echo $mostrador['nick'] ?> </p>
       <p><a href="javascript:Enviar('editaru.php?id=<?php echo $mostrador['id']; ?>','contenido');">Editar usuario</a></p>
-	  <p><a href="javascript:borrar('<?php echo $mostrador['id']; ?>','usuarios');">Borrar usuario</a></p></td>
+	  <p><a href="javascript:borrar('<?php echo $mostrador['id']; ?>','usuario');">Borrar usuario</a></p></td>
     <td width="73%" bgcolor="#0099CC" class="tablas"> <?php
         $admin= $mostrador['admin'];
 	if ($admin != 'N'){
@@ -116,39 +89,6 @@ else
 mysql_close($conex); 
 ?>
 </table>
-<?php 
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
 
-  echo "<b>";
-    echo "<br>";
-   echo "<b>";
-if(($start + 5) <= $filas_tot)
-   {
-?>    <a href="javascript:Enviar('preferencias.php?start=<?php echo ($start + 5); ?>','contenido');">P·gina anterior</a>
-	  
-      <?php
-   }
-
-   if($start > 0)
-   {
-	   ?>
-	<a href="javascript:Enviar('preferencias.php?start=<?php echo ($start - 5); ?>','contenido');">P·gina siguiente</a>
-<?php
-   }
-
-   
-   echo "<b>";
-    echo "<br>";
-   echo "<b>";
-   echo "P·gina: ";
-   echo "</b>";
-   $aux2= ($start/5) + 1;
-   echo"$aux2";
-   echo "<b>";
-   echo " de ";
-   echo "</b>";
-   echo "$aux";
-   echo "</br>";
-   echo "<br>";
-   echo "<b>";
-   ?>
 </div>
