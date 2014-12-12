@@ -25,8 +25,8 @@ if ($user)
 				$auxr=rand();
 				$pass= md5(md5($auxr));
 				$admin= "N";
-				$ipuser= $_SERVER['REMOTE_ADDR'];            
-
+				$ipuser= $_SERVER['REMOTE_ADDR'];  
+				
 				$b_user= mysql_query("SELECT nick FROM usuarios WHERE nick='$nick'");
 				if($user_reg=@mysql_fetch_array($b_user))
 				{
@@ -36,6 +36,27 @@ if ($user)
 				else
 				{
 			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin) values ('$date','$nick','$mail','$pass','$ipuser','$admin')");
+if($mail !="")
+{
+    $b_user=mysql_query("SELECT * FROM usuarios WHERE mail='$mail'");    
+    $ses = @mysql_fetch_assoc($b_user) ;
+    if(@mysql_num_rows($b_user))
+    {
+if($ses['pass'] == $pass)
+        {    
+        
+        
+            $_SESSION['id']=        $ses["id"];
+            $_SESSION['fecha']=    $ses["fecha"];
+            $_SESSION['nick']=    $ses["nick"];
+            $_SESSION['mail']=    $ses["mail"];
+            $_SESSION['ip']=        $ses["ip"];
+            $_SESSION['admin']=     $ses["admin"];
+			$_SESSION[foto]=     $ses[foto];
+        
+
+} } }        
+
 			 
 			 //Estoy recibiendo el formulario, compongo el cuerpo
 		$cuerpo = "<h1>Bienvenido a la página de PeopleRevolution</h1>";
