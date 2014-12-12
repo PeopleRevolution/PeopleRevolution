@@ -12,7 +12,8 @@ if ($user)
  	    $fbfullname = $user_profile['name']; // To Get Facebook full name
 	    $femail = $user_profile['email'];    // To Get Facebook email ID
 	/* ---- Session Variables -----*/
-	    $_SESSION['FBID'] = $fbid;           
+	    $_SESSION['FBID'] = $fbid;    
+	    $_SESSION['id']=    $fbid;       
 	    $_SESSION['USERNAME'] = $fbuname;
         $_SESSION['FULLNAME'] = $fbfullname;
 	    $_SESSION['EMAIL'] =  $femail;
@@ -28,38 +29,18 @@ if ($user)
 				$verificar= "S";
 				$ipuser= $_SERVER['REMOTE_ADDR'];  
 				
-				$b_user= mysql_query("SELECT nick FROM usuarios WHERE nick='$nick'");
-				if($user_reg=@mysql_fetch_array($b_user))
-				{
+				$b_user= mysql_query("SELECT * FROM usuarios WHERE mail='$mail'");   
+    			$ses = @mysql_fetch_assoc($b_user) ;
+    			
+				if ($ses["id"] == $fbid) {
 					echo '<br />El nombre de usuario o el email ya esta registrado.';
 					mysql_free_result($b_user); //liberamos la memoria del query a la db
 				}
 				else
 				{
-			 mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin,verificar) values ('$date','$nick','$mail','$pass','$ipuser','$admin','$verificar')");
-if($mail !="")
-{
-    $b_user=mysql_query("SELECT * FROM usuarios WHERE mail='$mail'");    
-    $ses = @mysql_fetch_assoc($b_user) ;
-    if(@mysql_num_rows($b_user))
-    {
-if($ses['pass'] == $pass)
-        {    
-        
-        
-            $_SESSION['id']=        $ses["id"];
-            $_SESSION['fecha']=    $ses["fecha"];
-            $_SESSION['nick']=    $ses["nick"];
-            $_SESSION['mail']=    $ses["mail"];
-            $_SESSION['ip']=        $ses["ip"];
-            $_SESSION['admin']=     $ses["admin"];
-			$_SESSION[foto]=     $ses[foto];
-        
-
-} } }        
-
-			 
-			 //Estoy recibiendo el formulario, compongo el cuerpo
+			 mysql_query("INSERT INTO usuarios (id,fecha,nick,mail,pass,ip,admin,verificar) values ('$fbid','$date','$nick','$mail','$pass','$ipuser','$admin','$verificar')");
+      
+        //Estoy recibiendo el formulario, compongo el cuerpo
 		$cuerpo = "<h1>Bienvenido a la página de PeopleRevolution</h1>";
 		$cuerpo .= "<p>Estos son tus datos de registro:</p>";
 		$cuerpo .= "<p>Usuario " . $nick . "</p>";
@@ -81,7 +62,21 @@ if($ses['pass'] == $pass)
 		//mando el correo...
 		mail($mail,"Registro en PeopleRevolution",$cuerpo,$cabeceras);
 		header("Location: index.php");
-	 } 
+	 }
+	 
+	$aux= $_SESSION['id'];
+	 $b_user= mysql_query("SELECT * FROM usuarios WHERE id='$aux'");   
+    $ses = @mysql_fetch_assoc($b_user) ;
+
+  
+            $_SESSION['fecha']=    $ses["fecha"];
+            $_SESSION['nick']=    $ses["nick"];
+            $_SESSION['mail']=    $ses["mail"];
+            $_SESSION['ip']=        $ses["ip"];
+            $_SESSION['admin']=     $ses["admin"];
+			$_SESSION[foto]=     $ses[foto];
+          
+	  
   } //try
   
   
