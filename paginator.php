@@ -26,7 +26,6 @@ if(($start + 5) <= $filas_tot)
    echo "</b>";
    echo "$aux";
    echo "</br>";
-     echo "<br>";
-   echo "<b>";
+
 }
    ?>
