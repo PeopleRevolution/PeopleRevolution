@@ -1,5 +1,6 @@
 <?php 
 require 'config.php';
+include("conexion.php");
 //require 'src/facebook.php';  // Include facebook SDK file
 //$user = $facebook->getUser();
 
@@ -19,7 +20,7 @@ if ($user)
 	    $_SESSION['EMAIL'] =  $femail;
     //       checkuser($fbid,$fbuname,$fbfullname,$femail);    // To update local DB
    
-  include("conexion.php");
+  
 				$date= time(); 
 				$nick= $_SESSION['FULLNAME'];
 				$mail= $_SESSION['EMAIL'];
@@ -28,53 +29,8 @@ if ($user)
 				$admin= "N";
 				$verificar= "S";
 				$ipuser= $_SERVER['REMOTE_ADDR'];  
-				
-				$b_user= mysql_query("SELECT * FROM usuarios WHERE mail='$mail'");   
-    			$ses = @mysql_fetch_assoc($b_user) ;
-    			
-				if ($ses["id"] == $fbid) {
-					echo '<br />El nombre de usuario o el email ya esta registrado.';
-					mysql_free_result($b_user); //liberamos la memoria del query a la db
-				}
-				else
-				{
-			 mysql_query("INSERT INTO usuarios (id,fecha,nick,mail,pass,ip,admin,verificar) values ('$fbid','$date','$nick','$mail','$pass','$ipuser','$admin','$verificar')");
-      
-        //Estoy recibiendo el formulario, compongo el cuerpo
-		$cuerpo = "<h1>Bienvenido a la página de PeopleRevolution</h1>";
-		$cuerpo .= "<p>Estos son tus datos de registro:</p>";
-		$cuerpo .= "<p>Usuario " . $nick . "</p>";
-		$cuerpo .= "<p>Email: " . $mail . "</p>";
-		$cuerpo .= "<p>Contraseña: " . $auxr . "</p>";
+				 
 
-		$cuerpo .= "<p>Ahora puedes empezar a disfrutar en nuestro sitio, podrás comentar y participar en nuestro site. Esperamos que tengas una feliz estancia.</p>";
-
-	$cuerpo .= "<p>Pero antes debes verificar que tu email sea verdadero en el siguiente enlance</p>";
-	$cuerpo =  $cuerpo."<a href =\"http://www.peoplerevolution.net/verificar.php?nick=$nick\"> Verificar Email </a>";
-
-	// Para enviar un correo HTML mail, la cabecera Content-type debe fijarse
-	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	// Cabeceras adicionales
-	$cabeceras .= 'From: PeopleRevolution <admin@peoplerevolution.net>' . "\r\n";
-
-		//mando el correo...
-		mail($mail,"Registro en PeopleRevolution",$cuerpo,$cabeceras);
-		header("Location: index.php");
-	 }
-	 
-	$aux= $_SESSION['id'];
-	 $b_user= mysql_query("SELECT * FROM usuarios WHERE id='$aux'");   
-    $ses = @mysql_fetch_assoc($b_user) ;
-
-  
-            $_SESSION['fecha']=    $ses["fecha"];
-            $_SESSION['nick']=    $ses["nick"];
-            $_SESSION['mail']=    $ses["mail"];
-            $_SESSION['ip']=        $ses["ip"];
-            $_SESSION['admin']=     $ses["admin"];
-			$_SESSION[foto]=     $ses[foto];
           
 	  
   } //try
@@ -87,7 +43,48 @@ if ($user)
 }
 
 if ($user) {
+
+	    			$verifica = mysql_query("SELECT * FROM `usuarios`  WHERE `id` = '$fbid'"); 
+
+                    if (mysql_num_rows ($verifica) < 1) { 
+                         
+			
+			 mysql_query("INSERT INTO usuarios (id,fecha,nick,mail,pass,ip,admin,verificar) values ('$fbid','$date','$nick','$mail','$pass','$ipuser','$admin','$verificar')");
+      
+        //Estoy recibiendo el formulario, compongo el cuerpo
+		$cuerpo = "<h1>Bienvenido a la página de PeopleRevolution</h1>";
+		$cuerpo .= "<p>Estos son tus datos de registro:</p>";
+		$cuerpo .= "<p>Usuario " . $nick . "</p>";
+		$cuerpo .= "<p>Email: " . $mail . "</p>";
+		$cuerpo .= "<p>Contraseña: " . $auxr . "</p>";
+		$cuerpo .= "<p>Ahora puedes empezar a disfrutar en nuestro sitio, podrás comentar y participar en nuestro site. Esperamos que tengas una feliz estancia.</p>";
+
+
+	// Para enviar un correo HTML mail, la cabecera Content-type debe fijarse
+	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+	// Cabeceras adicionales
+	$cabeceras .= 'From: PeopleRevolution <admin@peoplerevolution.net>' . "\r\n";
+
+		//mando el correo...
+		mail($mail,"Registro en PeopleRevolution",$cuerpo,$cabeceras);
+		//header("Location: index.php");
+	 }
+	 
+
+	 $b_user= mysql_query("SELECT * FROM usuarios WHERE id='$fbid'");   
+    $ses = @mysql_fetch_assoc($b_user) ;
+
+  
+            $_SESSION['fecha']=    $ses["fecha"];
+            $_SESSION['nick']=    $ses["nick"];
+            $_SESSION['mail']=    $ses["mail"];
+            $_SESSION['ip']=        $ses["ip"];
+            $_SESSION['admin']=     $ses["admin"];
+			$_SESSION[foto]=     $ses[foto];
 	header("Location: index.php");
+	
 } else {
  $loginUrl = $facebook->getLoginUrl(array(
 		'scope'		=> 'email', // Permissions to request from the user
