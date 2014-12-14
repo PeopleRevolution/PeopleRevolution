@@ -2,6 +2,7 @@
   include_once("config.php"); 
   include("paginator.php");
   $id = $_GET["id"]; 
+  $replicaaux = (empty($_REQUEST["replicacom"]) ? "NULL" : ($_REQUEST["replicacom"])); 
 $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
 { 
@@ -13,12 +14,12 @@ $end = 5;
 $resultado = mysql_query ("SELECT * FROM comentarios WHERE id=$id order by fecha desc");
 $filas_tot = mysql_num_rows($resultado);
 $aux=ceil($filas_tot/5);
-$resultado = mysql_query ("SELECT distinct com,comentarios.fecha,nick,usuarios.foto,comentarios.idu,replica,idc FROM noticia INNER JOIN comentarios INNER JOIN usuarios WHERE noticia.id=comentarios.id and (usuarios.id=comentarios.idu or comentarios.idu=0) and noticia.id=$id group by idc order by fecha desc LIMIT $start, $end"); 
+$resultado = mysql_query ("SELECT distinct com,comentarios.fecha,nick,usuarios.foto,comentarios.idu,replica,idc,noticia.id FROM noticia INNER JOIN comentarios INNER JOIN usuarios WHERE noticia.id=comentarios.id and (usuarios.id=comentarios.idu or comentarios.idu=0) and noticia.id=$id group by idc order by fecha desc LIMIT $start, $end"); 
 
 if($filas_tot !=0){
 ?>
 
-       <div class="block"></div>
+<div class="block"></div>
 <div class="block">
       <div class="block-bot">
           <div class="head">
@@ -37,6 +38,7 @@ if($filas_tot !=0){
               $idn= $mostrador['id'];
               $idu= $mostrador['idu'];
               $img= $mostrador['foto'];
+              $idc= $mostrador['idc'];
               ?> 
             </a>
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -62,7 +64,10 @@ if($filas_tot !=0){
 				echo '</b><br />';
  				echo "<img src=images_bd.php?id=$idu&tam=1&aux=usuarios height=95 weight=39 alt=\"Imagen perfil usuario\" >";}
               
-              ?></p></small>
+              ?></p>
+<p> <a href="javascript:Enviar('coment.php?id=<?php echo $idn ?>&replicacom=<?php echo $idc ?>&start=<?php echo $start ?>','auxcom');">Replicar</a></p>
+
+            </small>
                   
                   </td>
                   <td width="85%" bgcolor="#55667C">
@@ -76,12 +81,12 @@ if($filas_tot !=0){
                    <?php 
 
 
-              $resultado2 = mysql_query ("SELECT distinct com,comentarios.fecha,nick,usuarios.foto,comentarios.idu,replica,idc FROM noticia INNER JOIN comentarios INNER JOIN usuarios WHERE noticia.id=comentarios.id and (usuarios.id=comentarios.idu or comentarios.idu=0) and noticia.id=$id group by idc order by fecha desc LIMIT $start, $end"); 
+              $resultado2 = mysql_query ("SELECT distinct com,comentarios.fecha,nick,usuarios.foto,comentarios.idu,replica,idc,noticia.id FROM noticia INNER JOIN comentarios INNER JOIN usuarios WHERE noticia.id=comentarios.id and (usuarios.id=comentarios.idu or comentarios.idu=0) and noticia.id=$id group by idc order by fecha desc"); 
               while($mostrador2 = mysql_fetch_array($resultado2)) {
             if ($mostrador2['replica'] == $mostrador['idc'] ){
-              $idn= $mostrador2['id'];
-              $idu= $mostrador2['idu'];
-              $img= $mostrador2['foto'];
+              $idn2= $mostrador2['id'];
+              $idu2= $mostrador2['idu'];
+             // $img2= $mostrador2['foto'];
               ?> 
             </a>
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -95,7 +100,7 @@ if($filas_tot !=0){
                  <td width="15%" height="60" bgcolor="#666666">
                   <small class="date"> <p> 
                    <?php 
-                    if ($idu == "0"){
+                    if ($mostrador2['idu'] == "0"){
                     echo "Replicado por: Invitado ";}
                     else{
                       echo "Replicado por: ";
@@ -105,13 +110,13 @@ if($filas_tot !=0){
               <?php 
 
                 
-        if (($idu == "0") or (is_null($mostrador2['foto']))){
+        if (($mostrador2['idu'] == "0") or (is_null($mostrador2['foto']))){
         echo '</b><br />';
         echo "<img src=imagenes/userg.png height=95 weight=39 alt=\"Imagen perfil usuario\" >";
         }
           else{  
         echo '</b><br />';
-        echo "<img src=images_bd.php?id=$idu&tam=1&aux=usuarios height=95 weight=39 alt=\"Imagen perfil usuario\" >";}
+        echo "<img src=images_bd.php?id=$idu2&tam=1&aux=usuarios height=95 weight=39 alt=\"Imagen perfil usuario\" >";}
               
               ?></p></small>
                   
@@ -132,6 +137,8 @@ if($filas_tot !=0){
     <?php }
 if($_POST['com']!=""){
 	$idaux = $_POST["idaux"]; 
+  $replica = $_POST["replica"]; 
+  $idu = $_SESSION['id']; 
 // Verificamos que el formulario no ha sido enviado aun 
 // errores 
 error_reporting(E_ALL);  
@@ -147,10 +154,9 @@ $com = (nl2br(htmlspecialchars(urldecode($_POST["com"]))));
 $link = mysql_connect(DBHOST, DBUSER, DBPASSWORD) or die(mysql_error($link));; 
 mysql_select_db(DBNAME, $link) or die(mysql_error($link)); 
 
-
-$sql = "INSERT INTO comentarios(id, idu, com) 
+$sql = "INSERT INTO comentarios(id, idu, com,replica) 
 VALUES 
-('$idaux', '$idu', '$com')"; 
+('$idaux', '$idu', '$com',$replica)"; 
 mysql_query($sql, $link) or die(mysql_error($link)); 
  
 echo'<script>parent.document.getElementById("comentario").innerHTML="<div style=\"background-color:green;color:white;padding:4px;text-align:center;\">Comentario añadido correctamente.</div>";</script>';
@@ -159,6 +165,10 @@ $aux = "true";
 <?php
 }
 ?>
+<script type="text/javascript">
+window.onload = function(){ 
+ document.getElementById('#com').onclick();}
+ </script>
 
 <div class="block">
       <div class="block-bot">
@@ -176,10 +186,9 @@ $aux = "true";
 <form target="aux2" method="post" class="contacto" action="<?php echo basename($_SERVER['PHP_SELF'])?>" onSubmit="addcom(this);" >
 <fieldset>
 <div id="form"></div>
-<input name="idaux" type="hidden" id="idaux" value="<?php echo $id ?>" />
-<input name="idu" type="hidden" id="idu" value="<?php echo $idu ?>" />
-<input name="id" type="hidden" id="id" value="<?php echo $id ?>" />
-<input name="replica" type="hidden" id="replica" value="<?php echo $replica ?>" />
+<input name="idaux" type="text" id="idaux" value="<?php echo $id ?>" />
+<input name="start" type="text" id="start" value="<?php if (is_null($replicaaux)) {echo "0"; } else {echo $start;} ?>" />
+<input name="replica" type="text" id="replica" value="<?php echo $replicaaux ?>" />
 <p>
 <textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;"></textarea> 
 </p><div></div>
@@ -187,7 +196,7 @@ $aux = "true";
 <button class="button button-left">Añadir Comentario</button> 
   </fieldset>
 </form>
-<iframe name="aux2" width="0" height="0" style="visibility:hidden"></iframe>
+<iframe name="aux2" width="500" height="200" style="visibility:true"></iframe>
 </div>
 </div>
 </div>
