@@ -44,8 +44,9 @@ include("conexion.php");
  			$date= time(); 
             $nick= $_GET["envionick"];
             $mail= $_GET["envioEmail"];
+            $verificar= rand();
             $pass= md5(md5($_GET["envioContra1"]));
-			$admin= "N";
+			      $admin= "N";
             $ipuser= $_SERVER['REMOTE_ADDR'];            
 
             $b_user= mysql_query("SELECT nick FROM usuarios WHERE nick='$nick'");
@@ -56,7 +57,7 @@ include("conexion.php");
             }
             else
             {
-         mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin) values ('$date','$nick','$mail','$pass','$ipuser','$admin')");
+         mysql_query("INSERT INTO usuarios (fecha,nick,mail,pass,ip,admin,verificar) values ('$date','$nick','$mail','$pass','$ipuser','$admin','$verificar')");
 		 
 		 //Estoy recibiendo el formulario, compongo el cuerpo
 	$cuerpo = "<h1>Bienvenido a la página de PeopleRevolution</h1>";
@@ -67,7 +68,7 @@ include("conexion.php");
 	$cuerpo .= "<p>Ahora puedes empezar a disfrutar en nuestro sitio, podrás comentar y participar en nuestro site. Esperamos que tengas una feliz estancia.</p>";
 
 $cuerpo .= "<p>Pero antes debes verificar que tu email sea verdadero en el siguiente enlance</p>";
-$cuerpo =  $cuerpo."<a href =\"http://www.peoplerevolution.net/verificar.php?nick=$nick\"> Verificar Email </a>";
+$cuerpo =  $cuerpo."<a href =\"http://www.peoplerevolution.net/desarrollo/?entrada=verificar&id=$verificar\"> Verificar Email </a>";
 
 // Para enviar un correo HTML mail, la cabecera Content-type debe fijarse
 $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
