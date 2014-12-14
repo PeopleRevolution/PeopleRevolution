@@ -92,9 +92,9 @@ if($filas_tot !=0){
              // $img2= $mostrador2['foto'];
               ?> 
             </a>
+            <IMG SRC="./imagenes/20864.png" WIDTH=24 HEIGHT=29 BORDER=0 ALT="Un bebé">
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-               
                   <td width="85%" bgcolor="#55667C">
               <?php 
               echo "Comentario: ";
