@@ -1,15 +1,16 @@
 <?php 
   include_once("config.php"); 
   include("paginator.php");
-  $id = $_GET["id"]; 
+  $id = $_GET["id"];
   $replicaaux = (empty($_REQUEST["replicacom"]) ? "NULL" : ($_REQUEST["replicacom"])); 
-$conex = mysql_connect ("$servidor","$usuario","$password"); 
+  $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
 { 
 die('NO puede conetarse: ' . mysql_error()); 
 } 
 mysql_select_db ("$database", $conex); 
 $start = (empty($_REQUEST["start"]) ? 0 : ($_REQUEST["start"]));
+
 $end = 5;
 $resultado = mysql_query ("SELECT * FROM comentarios WHERE id=$id order by fecha desc");
 $filas_tot = mysql_num_rows($resultado);
@@ -28,7 +29,7 @@ if($filas_tot !=0){
             </div>
           </div>
           <div class="row-articles articles">
-<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,$id); ?>
+<?php paginator('detalle.php',$start,$filas_tot,$aux,$id); ?>
 <?php while($mostrador = mysql_fetch_array($resultado)) {
   if (is_null($mostrador['replica'])){
  ?>
@@ -186,9 +187,9 @@ window.onload = function(){
 <form target="aux2" method="post" class="contacto" action="<?php echo basename($_SERVER['PHP_SELF'])?>" onSubmit="addcom(this);" >
 <fieldset>
 <div id="form"></div>
-<input name="idaux" type="text" id="idaux" value="<?php echo $id ?>" />
-<input name="start" type="text" id="start" value="<?php if (is_null($replicaaux)) {echo "0"; } else {echo $start;} ?>" />
-<input name="replica" type="text" id="replica" value="<?php echo $replicaaux ?>" />
+<input name="idaux" type="hidden" id="idaux" value="<?php echo $id ?>" />
+<input name="start" type="hidden" id="start" value="<?php if($replicaaux != 'NULL') {echo $start;} ?>" />
+<input name="replica" type="hidden" id="replica" value="<?php echo $replicaaux ?>" />
 <p>
 <textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;"></textarea> 
 </p><div></div>
@@ -196,7 +197,7 @@ window.onload = function(){
 <button class="button button-left">Añadir Comentario</button> 
   </fieldset>
 </form>
-<iframe name="aux2" width="500" height="200" style="visibility:true"></iframe>
+<iframe name="aux2" width="0" height="0" style="visibility:hidden"></iframe>
 </div>
 </div>
 </div>
