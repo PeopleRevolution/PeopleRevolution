@@ -166,10 +166,6 @@ $aux = "true";
 <?php
 }
 ?>
-<script type="text/javascript">
-window.onload = function(){ 
- document.getElementById('#com').onclick();}
- </script>
 
 <div class="block">
       <div class="block-bot">
@@ -191,7 +187,12 @@ window.onload = function(){
 <input name="start" type="hidden" id="start" value="<?php if($replicaaux != 'NULL') {echo $start;} ?>" />
 <input name="replica" type="hidden" id="replica" value="<?php echo $replicaaux ?>" />
 <p>
+<?php if($replicaaux != 'NULL') {?>
+<textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;" autofocus></textarea> 
+<?php } 
+else{ ?>
 <textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;"></textarea> 
+<?php }?>
 </p><div></div>
 </p>
 <button class="button button-left">Añadir Comentario</button> 
