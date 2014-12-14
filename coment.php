@@ -10,11 +10,10 @@ die('NO puede conetarse: ' . mysql_error());
 mysql_select_db ("$database", $conex); 
 $start = (empty($_REQUEST["start"]) ? 0 : ($_REQUEST["start"]));
 $end = 5;
-$resultado2 = mysql_query ("SELECT * FROM comentarios WHERE id=$id order by fecha desc");
-$filas_tot = mysql_num_rows($resultado2);
+$resultado = mysql_query ("SELECT * FROM comentarios WHERE id=$id order by fecha desc");
+$filas_tot = mysql_num_rows($resultado);
 $aux=ceil($filas_tot/5);
-$resultado2 = mysql_query ("SELECT * FROM comentarios WHERE id=$id order by fecha desc LIMIT $start, $end"); 
-
+$resultado = mysql_query ("SELECT distinct com,comentarios.fecha,nick,usuarios.foto,comentarios.idu,replica,idc FROM noticia INNER JOIN comentarios INNER JOIN usuarios WHERE noticia.id=comentarios.id and (usuarios.id=comentarios.idu or comentarios.idu=0) and noticia.id=$id group by idc order by fecha desc LIMIT $start, $end"); 
 
 if($filas_tot !=0){
 ?>
@@ -29,72 +28,104 @@ if($filas_tot !=0){
           </div>
           <div class="row-articles articles">
 <?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,$id); ?>
-<?php while($mostrador = mysql_fetch_array($resultado2)) {
+<?php while($mostrador = mysql_fetch_array($resultado)) {
+  if (is_null($mostrador['replica'])){
  ?>
  <div class="article">
               
-              <a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');">
-              <?php $idn= $mostrador['id'];
-              $resultado4 = mysql_query ("SELECT * FROM noticia WHERE id=$idn");
-              while($mostrador4 = mysql_fetch_array($resultado4)) {
-              ?> </a>
+              <?php 
+              $idn= $mostrador['id'];
+              $idu= $mostrador['idu'];
+              $img= $mostrador['foto'];
+              ?> 
+            </a>
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="15%" height="60" bgcolor="#666666">
-                    <?php 
-			
-					$idu= $mostrador['idu'];
-							if ($idu == "0"){
-								?><small class="date"> <p> <?php 
-              echo "Publicado por: Invitado ";?>
-			  <p> <?php echo $mostrador['fecha'] ?></p>
+                  <small class="date"> <p> 
+                   <?php 
+                    if ($idu == "0"){
+                    echo "Publicado por: Invitado ";}
+                    else{
+                      echo "Publicado por: ";
+                      echo $mostrador['nick'];
+                  }?>
+			         <p> <?php echo $mostrador['fecha'] ?></p>
               <?php	
-              				echo '</b><br />';
-	 			echo "<img src=imagenes/userg.png height=95 weight=39 alt=\"Imagen perfil usuario\" >";
-							
-					}
-					else{
-					
-              $resultado3 = mysql_query ("SELECT * FROM usuarios WHERE id=$idu");
-              while($mostrador3 = mysql_fetch_array($resultado3)) {
-              ?><small class="date"> <p> <?php 
-              echo "Publicado por: ";
-              echo $mostrador3['nick'];?>
-			  <p> <?php echo $mostrador['fecha'] ?></p><?php
-              	$img= $mostrador3[foto];
-			  if ($img == ""){
+
+              	
+			  if (($idu == "0") or (is_null($mostrador['foto']))){
 				echo '</b><br />';
 	 			echo "<img src=imagenes/userg.png height=95 weight=39 alt=\"Imagen perfil usuario\" >";
 				}
-				else{
+          else{  
 				echo '</b><br />';
  				echo "<img src=images_bd.php?id=$idu&tam=1&aux=usuarios height=95 weight=39 alt=\"Imagen perfil usuario\" >";}
-              }}
+              
               ?></p></small>
                   
                   </td>
-                  <td width="85%" bgcolor="#55667C">              <p> <?php 
-              echo "Publicación: ";
-              echo $mostrador4['titulo'];
-              }?>
-			  
-			   <p><?php 
+                  <td width="85%" bgcolor="#55667C">
+              <?php 
               echo "Comentario: ";
-              echo $mostrador['com'];?></p>
-              </p></td>
+              echo $mostrador['com'];?>
+              </td>
                 </tr>
               </table>
       
+                   <?php 
+
+
+              $resultado2 = mysql_query ("SELECT distinct com,comentarios.fecha,nick,usuarios.foto,comentarios.idu,replica,idc FROM noticia INNER JOIN comentarios INNER JOIN usuarios WHERE noticia.id=comentarios.id and (usuarios.id=comentarios.idu or comentarios.idu=0) and noticia.id=$id group by idc order by fecha desc LIMIT $start, $end"); 
+              while($mostrador2 = mysql_fetch_array($resultado2)) {
+            if ($mostrador2['replica'] == $mostrador['idc'] ){
+              $idn= $mostrador2['id'];
+              $idu= $mostrador2['idu'];
+              $img= $mostrador2['foto'];
+              ?> 
+            </a>
+              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+               
+                  <td width="85%" bgcolor="#55667C">
+              <?php 
+              echo "Comentario: ";
+              echo $mostrador2['com'];?>
+              </td>
+                 <td width="15%" height="60" bgcolor="#666666">
+                  <small class="date"> <p> 
+                   <?php 
+                    if ($idu == "0"){
+                    echo "Replicado por: Invitado ";}
+                    else{
+                      echo "Replicado por: ";
+                      echo $mostrador2['nick'];
+                  }?>
+               <p> <?php echo $mostrador2['fecha'] ?></p>
+              <?php 
+
+                
+        if (($idu == "0") or (is_null($mostrador2['foto']))){
+        echo '</b><br />';
+        echo "<img src=imagenes/userg.png height=95 weight=39 alt=\"Imagen perfil usuario\" >";
+        }
+          else{  
+        echo '</b><br />';
+        echo "<img src=images_bd.php?id=$idu&tam=1&aux=usuarios height=95 weight=39 alt=\"Imagen perfil usuario\" >";}
+              
+              ?></p></small>
+                  
+                  </td>
+                </tr>
+
+              </table>  
              
-             
-           
+           <?php }} ?>
               
             </div>
                            <?php 
-}?>
-   
-        </div>
-    </div>
+}}?>
+
     </div>
      <div class="cl">&nbsp;</div>
     <!-- / Sidebar -->
@@ -122,7 +153,7 @@ VALUES
 ('$idaux', '$idu', '$com')"; 
 mysql_query($sql, $link) or die(mysql_error($link)); 
  
-echo'<script>parent.document.getElementById("comentario").innerHTML="<div style=\"background-color:green;color:white;padding:4px;text-align:center;\">Comentario añadido correctamente.</div>";</script>';
+echo'<script>parent.document.getElementById("comentario").innerHTML="<div style=\"background-color:green;color:white;padding:4px;text-align:center;\">Comentario aÃ±adido correctamente.</div>";</script>';
 $aux = "true";
 ?>
 <?php
@@ -133,7 +164,7 @@ $aux = "true";
       <div class="block-bot">
           <div class="head">
             <div class="head-cnt">
-              <h3>Añadir Comentario</h3>
+              <h3>AÃ±adir Comentario</h3>
       
             </div>
           </div>
@@ -148,11 +179,12 @@ $aux = "true";
 <input name="idaux" type="hidden" id="idaux" value="<?php echo $id ?>" />
 <input name="idu" type="hidden" id="idu" value="<?php echo $idu ?>" />
 <input name="id" type="hidden" id="id" value="<?php echo $id ?>" />
+<input name="replica" type="hidden" id="replica" value="<?php echo $replica ?>" />
 <p>
 <textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;"></textarea> 
 </p><div></div>
 </p>
-<button class="button button-left">Añadir Comentario</button> 
+<button class="button button-left">AÃ±adir Comentario</button> 
   </fieldset>
 </form>
 <iframe name="aux2" width="0" height="0" style="visibility:hidden"></iframe>
