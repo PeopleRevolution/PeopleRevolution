@@ -66,7 +66,7 @@ if ($mostrador != ""){ $aux3 = "true";
 							echo $aux;
 							}?></p>
                 <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer M‡s</a></pre>
-				<a target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.peoplerevolution.net?id=<?php echo $mostrador['id']; ?>">Compartir FB</a>
+				<a target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.peoplerevolution.net?entrada=detalle&id=<?php echo $mostrador['id']; ?>">Compartir FB</a>
               </div>
               <div class="cl">&nbsp;</div>
             </div>
