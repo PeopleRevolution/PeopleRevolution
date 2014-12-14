@@ -7,9 +7,10 @@ if(isset($_GET['modo']) == 'desconectar')
     session_destroy();
 	?>
     <div id="correcto">
+      <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=index.php">
       <?php
-   echo '<meta http-equiv="Refresh" content="2;"> ';
-	echo "<div style=\"background-color:green;color:white;padding:4px;text-align:center;\"><p>Te has desconectado del sistema.</p></div>";
+	  echo "<div style=\"background-color:green;color:white;padding:4px;text-align:center;\"><p>Te has desconectado del sistema.</p></div>";
+  
     exit();
 	?>
 </div>
