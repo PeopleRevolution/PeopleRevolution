@@ -35,7 +35,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 	  			$sec='detalle.php?id='.$_GET['id'];
 	  		}
 	  		else{
-	  			$sec='inicio.php';}
+	  			$sec='inicio.php';}}
  ?>
 <body onload="javascript:Enviar('<?php echo $sec; ?>','contenido');javascript:Enviar('user.php','log')">
 <!-- Page -->
