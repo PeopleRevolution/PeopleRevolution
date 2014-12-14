@@ -2,6 +2,7 @@
   include_once("config.php"); 
   include("paginator.php");
   $id = $_GET["id"];
+  $nickaux = $nickf= (empty($_REQUEST["nickaux"]) ? "Invitado" : ($_REQUEST["nickaux"]));
   $replicaaux = (empty($_REQUEST["replicacom"]) ? "NULL" : ($_REQUEST["replicacom"])); 
   $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
@@ -15,7 +16,7 @@ $end = 5;
 $resultado = mysql_query ("SELECT * FROM comentarios WHERE id=$id order by fecha desc");
 $filas_tot = mysql_num_rows($resultado);
 $aux=ceil($filas_tot/5);
-$resultado = mysql_query ("SELECT distinct com,comentarios.fecha,nick,usuarios.foto,comentarios.idu,replica,idc,noticia.id FROM noticia INNER JOIN comentarios INNER JOIN usuarios WHERE noticia.id=comentarios.id and (usuarios.id=comentarios.idu or comentarios.idu=0) and noticia.id=$id group by idc order by fecha desc LIMIT $start, $end"); 
+$resultado = mysql_query ("SELECT distinct com,comentarios.fecha,nick,usuarios.foto,comentarios.idu,replica,idc,noticia.id FROM noticia INNER JOIN comentarios INNER JOIN usuarios WHERE noticia.id=comentarios.id and usuarios.id=comentarios.idu and noticia.id=$id group by idc order by fecha desc LIMIT $start, $end"); 
 
 if($filas_tot !=0){
 ?>
@@ -40,6 +41,7 @@ if($filas_tot !=0){
               $idu= $mostrador['idu'];
               $img= $mostrador['foto'];
               $idc= $mostrador['idc'];
+              $nick= $mostrador['nick'];
               ?> 
             </a>
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -66,7 +68,7 @@ if($filas_tot !=0){
  				echo "<img src=images_bd.php?id=$idu&tam=1&aux=usuarios height=95 weight=39 alt=\"Imagen perfil usuario\" >";}
               
               ?></p>
-<p> <a href="javascript:Enviar('coment.php?id=<?php echo $idn ?>&replicacom=<?php echo $idc ?>&start=<?php echo $start ?>','auxcom');">Replicar</a></p>
+<p> <a href="javascript:Enviar('coment.php?id=<?php echo $idn ?>&nickaux=<?php echo $nick ?>&replicacom=<?php echo $idc ?>&start=<?php echo $start ?>','auxcom');">Replicar</a></p>
 
             </small>
                   
@@ -171,8 +173,13 @@ $aux = "true";
       <div class="block-bot">
           <div class="head">
             <div class="head-cnt">
-              <h3>Añadir Comentario</h3>
-      
+              <?php if($replicaaux != 'NULL')  
+              {?> 
+                    <h3>Replicando a <?php echo $nickaux; ?></h3>
+              <?php } 
+              else{ ?>
+                    <h3>Añadir Comentario</h3>
+              <?php }?>
             </div>
           </div>
           <div class="row-articles articles">
@@ -187,7 +194,8 @@ $aux = "true";
 <input name="start" type="hidden" id="start" value="<?php if($replicaaux != 'NULL') {echo $start;} ?>" />
 <input name="replica" type="hidden" id="replica" value="<?php echo $replicaaux ?>" />
 <p>
-<?php if($replicaaux != 'NULL') {?>
+<?php if($replicaaux != 'NULL') {
+?>
 <textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;" autofocus></textarea> 
 <?php } 
 else{ ?>
