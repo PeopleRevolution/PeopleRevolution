@@ -1,8 +1,8 @@
 <?php 
   include_once("config.php"); 
   include("paginator.php");
-  $id = $_GET["id"];
-  $id = mysql_real_escape_string($id);
+  //$id = $_GET["id"];
+  $id = mysql_real_escape_string($_GET["id"]);
   $nickaux = $nickf= (empty($_REQUEST["nickaux"]) ? "Invitado" : ($_REQUEST["nickaux"]));
   $replicaaux = (empty($_REQUEST["replicacom"]) ? "NULL" : ($_REQUEST["replicacom"])); 
   $conex = mysql_connect ("$servidor","$usuario","$password"); 
