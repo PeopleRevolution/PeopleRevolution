@@ -13,7 +13,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 
           <div class="head">
             <div class="head-cnt">
-              <h3>Últimos Comentarios</h3>
+              <h3>òltimos Comentarios</h3>
             </div>
           </div>
           <div id="comen">
@@ -40,7 +40,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
               $resultado4 = mysql_query ("SELECT * FROM noticia WHERE id=$idn");
               while($mostrador4 = mysql_fetch_array($resultado4)) {
               ?> <p> <?php 
-              echo "Publicación: ";
+              echo "Publicaci—n: ";
               echo $mostrador4['titulo'];
               }
               ?></p></a>

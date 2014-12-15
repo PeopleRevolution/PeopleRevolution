@@ -17,6 +17,7 @@ mysql_select_db ("$database", $conex);
  
 
 $start = (empty($_REQUEST["start"]) ? 0 : ($_REQUEST["start"]));
+$start = mysql_real_escape_string($start);
 $end = 5;
 $resultado = mysql_query ("SELECT * FROM usuarios"); 
 $filas_tot = mysql_num_rows($resultado);

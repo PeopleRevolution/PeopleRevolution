@@ -1,14 +1,17 @@
 <?php 
 include('config.php');
-$temp= $_GET["id"]; 
+//$temp= $_GET["id"]; 
+$temp = mysql_real_escape_string($_GET["id"]); 
 if(isset($_GET['envioEmail']))
 {
-	$_SESSION['id']= $_GET["envioid"]; 
+	$envio1 = mysql_real_escape_string($_GET["envioid"]); 
+	$_SESSION['id']= $envio1; 
 //si todo est· correcto enviar mensaje ...
 
 include("conexion.php");
- 			$twid= $_GET["envioid"]; 
-            $mail= $_GET["envioEmail"];  
+ 			$twid= $envio1; 
+            //$mail= $_GET["envioEmail"];  
+            $mail = mysql_real_escape_string($_GET["envioEmail"]); 
 			$date= time(); 
 			$nick= $_SESSION['twitter_id'];
 			$auxr=rand();

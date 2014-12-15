@@ -53,15 +53,18 @@ case $mimetypes[3]:
 imagepng($thumb, NAMETHUMB); 
 break; 
 } 
+$type = mysql_real_escape_string($type);  
 # foto original 
 $fp = fopen($tmp_name, "rb"); 
 $tfoto = fread($fp, filesize($tmp_name)); 
 $tfoto = addslashes($tfoto); 
+//$tfoto = mysql_real_escape_string($tfoto);  
 fclose($fp); 
 # thumbnail 
 $fp = fopen(NAMETHUMB, "rb"); 
 $tthumb = fread($fp, filesize(NAMETHUMB)); 
 $tthumb = addslashes($tthumb); 
+//$tthumb = mysql_real_escape_string($tthumb);  
 fclose($fp); 
 // Borra archivos temporales 
 @unlink($tmp_name); 
@@ -69,12 +72,12 @@ fclose($fp);
 //proceso de almacenamiento 
 //$fuente = $_POST["fuente"]; 
 //$categoria = $_POST["categoria"]; 
-$titulo = $_POST["titulo"]; 
+$titulo = mysql_real_escape_string($_POST["titulo"]);  
 //$titulo = htmlspecialchars($_POST['titulo'], ENT_QUOTES, 'UTF-8'); 
 //$subtitulo = htmlspecialchars($_POST['subtitulo'], ENT_QUOTES, 'UTF-8'); 
-$subtitulo = $_POST["subtitulo"]; 
-$detalle = $_POST["detalle"]; 
-//$detalle = (nl2br(htmlspecialchars($_POST['detalle'], ENT_QUOTES, 'UTF-8'))); 
+$subtitulo = mysql_real_escape_string($_POST["subtitulo"]);  
+//$detalle = mysql_real_escape_string($_POST["detalle"]);  
+$detalle = (nl2br(htmlspecialchars($_POST['detalle'], ENT_QUOTES, 'UTF-8'))); 
 $link = mysql_connect(DBHOST, DBUSER, DBPASSWORD) or die(mysql_error($link));; 
 mysql_select_db(DBNAME, $link) or die(mysql_error($link)); 
 $id= $_SESSION['id'];

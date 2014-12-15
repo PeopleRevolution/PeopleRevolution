@@ -9,6 +9,7 @@ $connect= mysql_connect ("$servidor","$usuario","$password");
 mysql_select_db("$database",$connect);
 //hacemos las consultas
 $id = (isset($_GET["id"])) ? $_GET["id"] : exit(); 
+$id = mysql_real_escape_string($id);
 //$result=mysql_query("SELECT * FROM noticia WHERE id=$id",$connect);
 //borramos los registros pertenecientes a la id 
 if ($_GET["tipo"] == 'entrada'){

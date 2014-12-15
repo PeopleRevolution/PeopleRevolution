@@ -2,8 +2,10 @@
 include_once("conexion.php");
 //recibimos la variable id enviada en el enlace por GET
 
-$id=$_GET[id];
-$id2 = $_POST["id"]; 
+//$id=$_GET[id];
+$id = mysql_real_escape_string($_GET['id']); 
+//$id2 = $_POST["id"]; 
+$id2 = mysql_real_escape_string($_POST['id']); 
 $adminaux = $_SESSION[admin];
 
 if ($id == "" and $id2 ==""){
@@ -82,13 +84,18 @@ fclose($fp);
 @unlink(NAMETHUMB); }
 //proceso de almacenamiento 
 //$fuente = $_POST["fuente"]; 
-//$categoria = $_POST["categoria"]; 
-$nick = (ucfirst($_POST["nick"])); 
-$id = $_POST["id"]; 
-$pass= md5(md5($_POST["pass"]));
+//$categoria = $_POST["categoria"];
+$nick = mysql_real_escape_string($_GET['nick']);  
+$nick = (ucfirst($nick));
+$id = mysql_real_escape_string($_POST["id"]); 
+//$id = $_POST["id"]; 
+$pass = mysql_real_escape_string($_POST["pass"]); 
+$pass= md5(md5($pass);
 $passaux= $_POST["pass"];
-$mail = (ucfirst($_POST["mail"])); 
-$admin = (ucfirst($_POST["admin"]));
+$mail = mysql_real_escape_string($_POST["mail"]); 
+$mail = (ucfirst($mail)); 
+$admin = mysql_real_escape_string($_POST["admin"]); 
+$admin = (ucfirst($admin));
 
 if ($admin != "S"){
 	

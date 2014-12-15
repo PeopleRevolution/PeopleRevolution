@@ -7,6 +7,7 @@ die('NO puede conetarse: ' . mysql_error());
 } 
 mysql_select_db ("$database", $conex); 
 $start = (empty($_REQUEST["start"]) ? 0 : ($_REQUEST["start"]));
+$start = mysql_real_escape_string($start);
 $end = 5;
 $resultado = mysql_query ("SELECT * FROM noticia order by top desc"); 
 $filas_tot = mysql_num_rows($resultado);
@@ -29,7 +30,7 @@ $resultado = mysql_query ("SELECT * FROM noticia order by top desc LIMIT $start,
             if ($aux !=0){
 if(($start + 5) < $filas_tot)
    {
-?>    <a href="javascript:Enviar('topn.php?start=<?php echo ($start + 5); ?>','contenido');">Página anterior</a>
+?>    <a href="javascript:Enviar('topn.php?start=<?php echo ($start + 5); ?>','contenido');">P‡gina anterior</a>
 	  
       <?php
    }
@@ -37,14 +38,14 @@ if(($start + 5) < $filas_tot)
    if($start > 0)
    {
 	   ?>
-	<a href="javascript:Enviar('topn.php?start=<?php echo ($start - 5); ?>','contenido');">Página siguiente</a>
+	<a href="javascript:Enviar('topn.php?start=<?php echo ($start - 5); ?>','contenido');">P‡gina siguiente</a>
 <?php
    }
 
  
     echo "<br>";
    echo "<b>";
-   echo "Página: ";
+   echo "P‡gina: ";
    echo "</b>";
    $aux2= ($start/5) + 1;
    echo"$aux2";

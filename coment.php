@@ -2,6 +2,7 @@
   include_once("config.php"); 
   include("paginator.php");
   $id = $_GET["id"];
+  $id = mysql_real_escape_string($id);
   $nickaux = $nickf= (empty($_REQUEST["nickaux"]) ? "Invitado" : ($_REQUEST["nickaux"]));
   $replicaaux = (empty($_REQUEST["replicacom"]) ? "NULL" : ($_REQUEST["replicacom"])); 
   $conex = mysql_connect ("$servidor","$usuario","$password"); 
@@ -139,8 +140,10 @@ if($filas_tot !=0){
     <!-- / Sidebar -->
     <?php }
 if($_POST['com']!=""){
-	$idaux = $_POST["idaux"]; 
-  $replica = $_POST["replica"]; 
+	//$idaux = $_POST["idaux"]; 
+	$idaux = mysql_real_escape_string($_POST["idaux"]);
+  //$replica = $_POST["replica"]; 
+  $replica = mysql_real_escape_string($_POST["replica"]);
   $idu = $_SESSION['id']; 
 // Verificamos que el formulario no ha sido enviado aun 
 // errores 

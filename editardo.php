@@ -2,8 +2,10 @@
 include_once("conexion.php");
 //recibimos la variable id enviada en el enlace por GET
 
-$id=$_GET[id];
-$id2=$_POST[id];
+//$id=$_GET[id];
+$id = mysql_real_escape_string($_GET['id']); 
+//$id2=$_POST[id];
+$id2 = mysql_real_escape_string($_POST['id']); 
 if ($id == "")
 { $id = $id2;}
 //conectamos a la base

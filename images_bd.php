@@ -6,8 +6,11 @@ define("DBNAME", "$database");
 define("DBUSER", "$usuario");
 define("DBPASSWORD", "$password");
 $id = (isset($_GET["id"])) ? $_GET["id"] : exit();
+$id = mysql_real_escape_string($id); 
 $tam = (isset($_GET["tam"])) ? $_GET["tam"] : 1;
+$tam = mysql_real_escape_string($tam); 
 $aux = (isset($_GET["aux"])) ? $_GET["aux"] : 1;
+$aux = mysql_real_escape_string($aux); 
 switch($tam) {
 case "1":
 $campo = "foto";break;;

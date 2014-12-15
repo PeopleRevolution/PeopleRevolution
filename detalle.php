@@ -12,7 +12,8 @@ if (!$conex)
 die('NO puede conetarse: ' . mysql_error()); 
 } 
 mysql_select_db ("$database", $conex); 
-$id = $_GET["id"]; 
+//$id = $_GET["id"]; 
+$id = mysql_real_escape_string($_GET["id"]);
 $resultado = mysql_query ("SELECT * FROM noticia WHERE id=$id"); 
 
 

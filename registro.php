@@ -42,10 +42,13 @@ if ($compEmail==1 and $compContra==1 and $compNick==1) { //si todo est· correcto
 
 include("conexion.php");
  			$date= time(); 
-            $nick= $_GET["envionick"];
-            $mail= $_GET["envioEmail"];
+            //$nick= $_GET["envionick"];
+            $nick = mysql_real_escape_string($_GET["envionick"]); 
+            //$mail= $_GET["envioEmail"];
+            $mail = mysql_real_escape_string($_GET["envioEmail"]); 
             $verificar= rand();
-            $pass= md5(md5($_GET["envioContra1"]));
+            $contra = mysql_real_escape_string($_GET["envioContra1"]);
+            $pass= md5(md5($contra));
 			      $admin= "N";
             $ipuser= $_SERVER['REMOTE_ADDR'];            
 
