@@ -5,12 +5,12 @@ define("DBHOST", "$servidor");
 define("DBNAME", "$database");
 define("DBUSER", "$usuario");
 define("DBPASSWORD", "$password");
-$id = (isset($_GET["id"])) ? $_GET["id"] : exit();
-$id = mysql_real_escape_string($id); 
-$tam = (isset($_GET["tam"])) ? $_GET["tam"] : 1;
-$tam = mysql_real_escape_string($tam); 
-$aux = (isset($_GET["aux"])) ? $_GET["aux"] : 1;
-$aux = mysql_real_escape_string($aux); 
+$link = mysql_connect(DBHOST, DBUSER, DBPASSWORD) or die(mysql_error($link));;
+mysql_select_db(DBNAME, $link) or die(mysql_error($link));
+$id = (isset($_GET["id"])) ? mysql_real_escape_string($_GET["id"]) : exit();
+$tam = (isset($_GET["tam"])) ? mysql_real_escape_string($_GET["tam"]) : 1;
+$aux = (isset($_GET["aux"])) ? mysql_real_escape_string($_GET["aux"]) : 1;
+
 switch($tam) {
 case "1":
 $campo = "foto";break;;
@@ -23,8 +23,7 @@ $campo = "foto";break;;
 $sql = "SELECT $campo, mime
 FROM $aux
 WHERE id = $id";
-$link = mysql_connect(DBHOST, DBUSER, DBPASSWORD) or die(mysql_error($link));;
-mysql_select_db(DBNAME, $link) or die(mysql_error($link));
+
 $conn = mysql_query($sql, $link) or die(mysql_error($link));
 $datos = mysql_fetch_array($conn);
 $imagen = $datos[0];
