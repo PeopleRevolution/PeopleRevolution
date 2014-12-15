@@ -1,11 +1,10 @@
 <?php 
 include('config.php');
 //$temp= $_GET["id"]; 
-$temp = mysql_real_escape_string($_GET["id"]); 
+$temp = $_SESSION['aux'];  
 if(isset($_GET['envioEmail']))
 {
-	$envio1 = mysql_real_escape_string($_GET["envioid"]); 
-	$_SESSION['id']= $envio1; 
+	$_SESSION['id']= $_SESSION['aux']; 
 //si todo est· correcto enviar mensaje ...
 
 include("conexion.php");
