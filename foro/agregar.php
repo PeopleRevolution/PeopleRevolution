@@ -6,8 +6,8 @@ $mensaje = $_GET["mensaje"];
 $ident = $_GET["identificador"];
 
 //Hacemos algunas validaciones
-if(empty($autor)) $autor = "Anónimo";
-if(empty($titulo)) $titulo = "Sin título";
+if(empty($autor)) $autor = "AnÃ³nimo";
+if(empty($titulo)) $titulo = "Sin tÃ­tulo";
 //Evitamos que el usuario ingrese HTML
 $mensaje = htmlentities($mensaje);
 
