@@ -115,7 +115,7 @@ $aux = "true";
 <input name="subtitulo" type="text" class="text" id="subtitulo" size="50%" /> 
 </p> 
 <p> Detalle<br /> 
-<textarea name="detalle" id="detalle" cols="90%" rows="25%" tabindex="4" style="background-color: #87CEEB;"></textarea> 
+<textarea name="detalle" id="detalle" cols="90%" rows="25%" tabindex="4" style="background-color: #b7b7b7;"></textarea> 
 
 
 <div></p>
