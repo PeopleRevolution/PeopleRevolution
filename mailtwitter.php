@@ -1,14 +1,14 @@
 <?php 
 include('config.php');
-//$temp= $_GET["id"]; 
-$temp = $_SESSION['aux'];  
+$temp= $_GET["id"]; 
+
 if(isset($_GET['envioEmail']))
 {
-	$_SESSION['id']= $_SESSION['aux']; 
+	
 //si todo est· correcto enviar mensaje ...
 
 include("conexion.php");
- 			$twid= $envio1; 
+
             //$mail= $_GET["envioEmail"];  
             $mail = mysql_real_escape_string($_GET["envioEmail"]); 
 			$date= time(); 
@@ -18,7 +18,8 @@ include("conexion.php");
 			$admin= "N";
 			$verificar= rand();
 			$ipuser= $_SERVER['REMOTE_ADDR'];         
-
+			$twid = mysql_real_escape_string($_GET["envioid"]); 
+ 
         mysql_query("INSERT INTO usuarios (id,fecha,nick,pass,mail,ip,admin,verificar) values ('$twid','$date','$nick','$pass','$mail','$ipuser','$admin','$verificar')");
 		 
 		 //Estoy recibiendo el formulario, compongo el cuerpo
@@ -45,18 +46,6 @@ $cabeceras .= 'From: PeopleRevolution <admin@peoplerevolution.net>' . "\r\n";
 	//mando el correo...
 	mail($mail,"Registro en PeopleRevolution",$cuerpo,$cabeceras);
 
-
-	$b_user= mysql_query("SELECT * FROM usuarios WHERE id='$twid'");   
-    		    $ses = @mysql_fetch_assoc($b_user) ;
-
-            	$_SESSION['fecha']=    $ses["fecha"];
-            	$_SESSION['nick']=    $ses["nick"];
-            	$_SESSION['mail']=    $ses["mail"];
-            	$_SESSION['ip']=        $ses["ip"];
-            	$_SESSION['admin']=     $ses["admin"];
-				$_SESSION[foto]=     $ses[foto];
-
-				//header('Location: reg.php'); 
 }
 ?>
 		 

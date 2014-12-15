@@ -27,6 +27,7 @@ $b_user= mysql_query("SELECT * FROM usuarios WHERE verificar='$id'");
             	$_SESSION['admin']=     $ses["admin"];
 				$_SESSION[foto]=     $ses[foto];
 
+
 mysql_query("UPDATE usuarios SET verificar='$verificar' WHERE verificar='$id'",$connect);
 				//header('Location: index.php');
 

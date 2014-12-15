@@ -44,8 +44,8 @@ if(isset($_GET['oauth_token']))
 	 			 
 				//redirect to main page.
 			if($auxq){
-				header("Location: http://peoplerevolution.net/desarrollo/?entrada=mailtwitter");
-			}	$_SESSION['aux']= $twid;
+				header("Location: http://peoplerevolution.net/desarrollo/?entrada=mailtwitter&id=$twid");
+			}
 			else
 			if(!$auxq){
 				$b_user= mysql_query("SELECT * FROM usuarios WHERE id='$twid'");   
