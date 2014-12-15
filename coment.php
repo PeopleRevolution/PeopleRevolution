@@ -1,8 +1,8 @@
 <?php 
   include_once("config.php"); 
   include("paginator.php");
-  //$id = $_GET["id"];
-  $id = mysql_real_escape_string($_GET["id"]);
+ // $id = $_GET["id"];
+  //$id = mysql_real_escape_string($_GET["id"]);
   $nickaux = $nickf= (empty($_REQUEST["nickaux"]) ? "Invitado" : ($_REQUEST["nickaux"]));
   $replicaaux = (empty($_REQUEST["replicacom"]) ? "NULL" : ($_REQUEST["replicacom"])); 
   $conex = mysql_connect ("$servidor","$usuario","$password"); 
@@ -12,7 +12,7 @@ die('NO puede conetarse: ' . mysql_error());
 } 
 mysql_select_db ("$database", $conex); 
 $start = (empty($_REQUEST["start"]) ? 0 : ($_REQUEST["start"]));
-
+$id = mysql_real_escape_string($_GET["id"]);
 $end = 5;
 $resultado = mysql_query ("SELECT * FROM comentarios WHERE id=$id order by fecha desc");
 $filas_tot = mysql_num_rows($resultado);
