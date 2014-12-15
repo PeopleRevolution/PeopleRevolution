@@ -180,7 +180,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
           <div class="cl">&nbsp;</div>
           <ul>
             <li><a href="http://-/">Comunidad</a></li>
-            <li><a href="http://-/">Foro</a></li>
+            <li><a href="javascript:Enviar('./foro/index.php','contenido');">Foro</a></li>
             <li><a href="http://-">Redes</a></li>
             <li><a href="http://-/">Descargas</a></li>
             <li><a href="http://-/">Aviso Legal</a></li>
