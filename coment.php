@@ -186,29 +186,29 @@ $aux = "true";
 
    
             
-				<div id="comentario"></div>
-				<form target="aux2" method="post" class="contacto" action="<?php echo basename($_SERVER['PHP_SELF'])?>" onSubmit="addcom(this);" >
-				<fieldset>
-				<div id="form"></div>
-				<input name="idaux" type="hidden" id="idaux" value="<?php echo $id ?>" />
-				<input name="start" type="hidden" id="start" value="<?php if($replicaaux != 'NULL') {echo $start;} ?>" />
-				<input name="replica" type="hidden" id="replica" value="<?php echo $replicaaux ?>" />
-				<p>
-				<?php if($replicaaux != 'NULL') {
-				?>
-				<textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;" autofocus></textarea> 
-				<?php } 
-				else{ ?>
-				<textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;"></textarea> 
-				<?php }?>
-				</p><div></div>
-				</p>
-				<button class="button button-left">Añadir Comentario</button> 
-				  </fieldset>
-				</form>
-				<iframe name="aux2" width="0" height="0" style="visibility:hidden"></iframe>
-		</div>
-	</div>
+<div id="comentario"></div>
+<form target="aux2" method="post" class="contacto" action="<?php echo basename($_SERVER['PHP_SELF'])?>" onSubmit="addcom(this);" >
+<fieldset>
+<div id="form"></div>
+<input name="idaux" type="hidden" id="idaux" value="<?php echo $id ?>" />
+<input name="start" type="hidden" id="start" value="<?php if($replicaaux != 'NULL') {echo $start;} ?>" />
+<input name="replica" type="hidden" id="replica" value="<?php echo $replicaaux ?>" />
+<p>
+<?php if($replicaaux != 'NULL') {
+?>
+<textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;" autofocus></textarea> 
+<?php } 
+else{ ?>
+<textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;"></textarea> 
+<?php }?>
+</p><div></div>
+</p>
+<button class="button button-left">Añadir Comentario</button> 
+  </fieldset>
+</form>
+<iframe name="aux2" width="0" height="0" style="visibility:hidden"></iframe>
+</div>
+</div>
 </div>
 </div>
 </body>
