@@ -1,9 +1,9 @@
 <?php
 require('configuracion.php');
-$autor = $_POST["autor"];
-$titulo = $_POST["titulo"];
-$mensaje = $_POST["mensaje"];
-$ident = $_POST["identificador"];
+$autor = $_SESSION["nick"];
+$titulo = $_GET["titulo"];
+$mensaje = $_GET["mensaje"];
+$ident = $_GET["identificador"];
 
 //Hacemos algunas validaciones
 if(empty($autor)) $autor = "Anónimo";
