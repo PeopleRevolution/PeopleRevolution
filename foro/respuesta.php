@@ -3,6 +3,7 @@ require('funciones.php');
 $id = $_GET["id"];
 $citar = $_GET["citar"];
 $resp = $_GET["resp"];
+echo $resp;
 $row = array("id" => $id);
 if($citar==1)
 {
