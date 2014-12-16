@@ -68,9 +68,7 @@
   background-color: #eee;
   color: #222;
 }
-#hexaflip-demo2 {
-  margin-bottom: 6rem;
-}
+
 #hexaflip-demo5 .hexaflip-cube > div {
   color: rgba(255,255,255,0.3);
   font-weight: 900 !important;
