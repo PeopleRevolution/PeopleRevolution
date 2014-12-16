@@ -13,7 +13,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 
           <div class="head">
             <div class="head-cnt">
-              <h3>òltimos Comentarios</h3>
+              <h3>Últimos Comentarios</h3>
             </div>
           </div>
           <div id="comen">
