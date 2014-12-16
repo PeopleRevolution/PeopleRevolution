@@ -5,7 +5,7 @@
  {
 	public function testPrueba()
 	{
-			$host = "https://api.twitter.com/1.1/";
+			
 			$consumer_key = 12345;
 			$consumer_secret = 123456;
 		    $shouldreturn = "https://api.twitter.com/1.1/";
@@ -14,7 +14,7 @@
 			->setConstructorArgs(array($consumer_key, $consumer_secret, $oauth_token = NULL, $oauth_token_secret = NULL))
 			->getMock();
 			/*print_r(get_class_methods($twitter));*/
-			$result = $twitter->$host;
+			$result = $host;
 			$this->assertEquals($shouldreturn, $result);
 	}
 }
