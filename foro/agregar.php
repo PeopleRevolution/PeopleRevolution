@@ -1,5 +1,7 @@
 <?php
-require('configuracion.php');
+require('../conexion.php');
+user_login();
+require('../config.php');
 $autor = $_SESSION["nick"];
 $titulo = $_GET["titulo"];
 $mensaje = $_GET["mensaje"];

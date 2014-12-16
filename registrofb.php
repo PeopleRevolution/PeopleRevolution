@@ -1,6 +1,14 @@
 <?php 
 require 'config.php';
 include("conexion.php");
+require 'src/facebook.php';  // Include facebook SDK file
+//require 'functions.php';  // Include functions
+$facebook = new Facebook(array(
+  'appId'  => '1529379410651232',   // Facebook App ID 
+  'secret' => 'a78867afb22c6376ae7c5704a3533cef',  // Facebook App Secret
+  'cookie' => true,	
+));
+$user = $facebook->getUser();
 //require 'src/facebook.php';  // Include facebook SDK file
 //$user = $facebook->getUser();
 

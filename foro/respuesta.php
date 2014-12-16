@@ -1,20 +1,21 @@
 <?php
+require('../config.php');
 require('funciones.php');
+require('../conexion.php');
+user_login();
 $id = $_GET["id"];
 $citar = $_GET["citar"];
 $resp = $_GET["resp"];
-echo $resp;
 $row = array("id" => $id);
 if($citar==1)
 {
-	require('configuracion.php');
 	$sql = "SELECT titulo, mensaje, identificador AS id FROM foro WHERE id='$id'";
 	$rs = mysql_query($sql, $con);
 	if(mysql_num_rows($rs)==1) $row = mysql_fetch_assoc($rs);
 	if($resp==1)
 	{
 		$row["titulo"] = $row["titulo"];
-		//$row["mensaje"] = "[citar]".$row["mensaje"]."[/citar]";
+		$row["mensaje"] = "";
 	}
 	else{
 		$row["titulo"] = "Re: ".$row["titulo"];

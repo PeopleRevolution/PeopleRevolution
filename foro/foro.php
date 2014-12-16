@@ -1,5 +1,5 @@
 <?php
-require('configuracion.php');
+require('../config.php');
 require('funciones.php');
 $id = $_GET["id"];
 if(empty($id)) Header("Location: index.php");
