@@ -28,5 +28,4 @@ if($citar==1)
 $template = implode("", file('formulario.html'));
 include('header.html');
 mostrarTemplate($template, $row);
-include('footer.html');
 ?>

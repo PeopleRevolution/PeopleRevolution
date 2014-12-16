@@ -17,10 +17,9 @@ if(mysql_num_rows($rs)>0)
 	include('titulos.html');
 	while($row = mysql_fetch_assoc($rs))
 	{
-		$color=($color==""?"#5b69a6":"");
+		$color=($color==""?"#006699":"");
 		$row["color"] = $color;
 		mostrarTemplate($template, $row);
 	}
 }
-include('footer.html');
 ?>
