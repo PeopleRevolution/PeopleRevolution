@@ -68,7 +68,7 @@ if ($mostrador != ""){ $aux3 = "true";
                 <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer Más</a></pre>
 				<a target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.peoplerevolution.net?id=<?php echo $mostrador['id']; ?>">Compartir FB</a>
 				<br>
-				<a href="http://twitter.com/?status='+<?php echo $mostrador['titulo']; ?>'+http://www.peoplerevolution.net?id=<?php echo $mostrador['id']; ?>;">Compartir en Twitter</a>	
+				<a href="http://twitter.com/?status='+<?php echo $mostrador['titulo']; ?>' --> People Revolution +http://www.peoplerevolution.net?id=<?php echo $mostrador['id']; ?>;">Compartir en Twitter</a>	
 				
 				
 				
