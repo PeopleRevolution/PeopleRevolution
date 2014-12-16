@@ -1,12 +1,14 @@
-<table width="100%" border="0" align="center" cellpadding="2" cellspacing="2">
-  <tr bgcolor="<?=$color?>"> 
+<div class="article">
+ <div class="cl">&nbsp;</div> 
+ <div class="cnt">
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="2" bgcolor="<?=$color?>">
     <td width="25%" valign="top"> <b><a name="<?=$id?>">
       <?=$autor?></a>
       </b><br>
       <font size="-2">Enviado el : <?=$enviado?></font>
       [ <a href="javascript:Enviar('./foro/respuesta.php?id=<?=$id?>&citar=1','contenido');">CITAR</a> ]
   </td>
-    <td> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <td> <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="<?=$color?>">
         <tr>
           <td><strong><font size="-1">
             <?=$titulo?>
@@ -16,8 +18,10 @@
       </table>
       <hr align="center" width="100%" size="2" noshade>
       <?=$mensaje?></td>
-  </tr>
   <tr> 
     <td colspan="2" height="5"></td>
   </tr>
 </table>
+<div class="cl">&nbsp;</div>
+ </div>
+  </div>

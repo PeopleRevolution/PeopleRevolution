@@ -1,10 +1,14 @@
 <?php 
   include_once("config.php"); 
   include("paginator.php");
+  $idua = $_SESSION['id']; 
+  //echo "Me vacila el php ".$idua;
  // $id = $_GET["id"];
   //$id = mysql_real_escape_string($_GET["id"]);
   $nickaux = $nickf= (empty($_REQUEST["nickaux"]) ? "Invitado" : ($_REQUEST["nickaux"]));
-  $replicaaux = (empty($_REQUEST["replicacom"]) ? "NULL" : ($_REQUEST["replicacom"])); 
+  $replicaaux = (empty($_REQUEST["replicacom"]) ? "NULL" : ($_REQUEST["replicacom"]));
+  $idusu = (empty($_REQUEST["idusu"]) ? $idua : ($_REQUEST["idusu"])); 
+  //echo "Me vacila el php 2 ".$idusu;
   $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
 { 
@@ -69,7 +73,7 @@ if($filas_tot !=0){
  				echo "<img src=images_bd.php?id=$idu&tam=1&aux=usuarios height=95 weight=39 alt=\"Imagen perfil usuario\" >";}
               
               ?></p>
-<p> <a href="javascript:Enviar('coment.php?id=<?php echo $idn ?>&nickaux=<?php echo $nick ?>&replicacom=<?php echo $idc ?>&start=<?php echo $start ?>','auxcom');">Replicar</a></p>
+<p> <a href="javascript:Enviar('coment.php?id=<?php echo $idn ?>&nickaux=<?php echo $nick ?>&idusu=<?php echo $idusu ?>&replicacom=<?php echo $idc ?>&start=<?php echo $start ?>','auxcom');">Replicar</a></p>
 
             </small>
                   
@@ -144,7 +148,7 @@ if($_POST['com']!=""){
 	$idaux = mysql_real_escape_string($_POST["idaux"]);
   //$replica = $_POST["replica"]; 
   $replica = mysql_real_escape_string($_POST["replica"]);
-  $idu = $_SESSION['id']; 
+ 
 // Verificamos que el formulario no ha sido enviado aun 
 // errores 
 error_reporting(E_ALL);  
@@ -162,7 +166,7 @@ mysql_select_db(DBNAME, $link) or die(mysql_error($link));
 
 $sql = "INSERT INTO comentarios(id, idu, com,replica) 
 VALUES 
-('$idaux', '$idu', '$com',$replica)"; 
+('$idaux', '$idusu', '$com',$replica)"; 
 mysql_query($sql, $link) or die(mysql_error($link)); 
  
 echo'<script>parent.document.getElementById("comentario").innerHTML="<div style=\"background-color:green;color:white;padding:4px;text-align:center;\">Comentario añadido correctamente.</div>";</script>';
@@ -194,6 +198,7 @@ $aux = "true";
 <fieldset>
 <div id="form"></div>
 <input name="idaux" type="hidden" id="idaux" value="<?php echo $id ?>" />
+<input name="idusu" type="hidden" id="idusu" value="<?php echo $idusu ?>" />
 <input name="start" type="hidden" id="start" value="<?php if($replicaaux != 'NULL') {echo $start;} ?>" />
 <input name="replica" type="hidden" id="replica" value="<?php echo $replicaaux ?>" />
 <p>

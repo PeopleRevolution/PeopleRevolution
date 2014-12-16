@@ -17,7 +17,7 @@ if(mysql_num_rows($rs)>0)
 	$template = implode("", file('post.html'));
 	while($row = mysql_fetch_assoc($rs))
 	{
-		$color=($color==""?"#5b69a6":"");
+		$color=($color==""?"#006699":"");
 		$row["color"] = $color;
 		//manipulamos el mensaje
 		$row["mensaje"] = nl2br($row["mensaje"]);
@@ -25,5 +25,4 @@ if(mysql_num_rows($rs)>0)
 		mostrarTemplate($template, $row);
 	}
 }
-include('footer.html');
 ?>
