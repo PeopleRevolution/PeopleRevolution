@@ -39,4 +39,15 @@
 			$result = $twitter->authorizeURL();
 			$this->assertEquals($shouldreturn, $result);
 	}
+	
+	public function testrequestTokenURL()
+	{
+			
+			$consumer_key = 12345;
+			$consumer_secret = 123456;
+		    $shouldreturn = 'https://api.twitter.com/oauth/request_token';
+			$twitter = new TwitterOAuth($consumer_key, $consumer_secret, $oauth_token = NULL, $oauth_token_secret = NULL);
+			$result = $twitter->requestTokenURL();
+			$this->assertEquals($shouldreturn, $result);
+	}
 }
