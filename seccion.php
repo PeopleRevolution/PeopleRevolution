@@ -49,7 +49,7 @@ if ($mostrador != ""){ $aux3 = "true";
             <div class="article">
               <div class="cl">&nbsp;</div>
               <div class="image"> <a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php
-                      echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto añadido\"  width=\"194\" height=\"99\"  class=alignleft >"; ?></a> </div>
+                      echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto a–adido\"  width=\"194\" height=\"99\"  class=alignleft >"; ?></a> </div>
               <div class="cnt">
                 <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo $mostrador['titulo']; ?></a></h4>
                 <p><?php $aux = $mostrador['detalle']; 
@@ -65,14 +65,13 @@ if ($mostrador != ""){ $aux3 = "true";
 							else {
 							echo $aux;
 							}?></p>
-                <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer Más</a></pre>
+                <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer M‡s</a></pre>
 			
       
         <div id="m-soc2">
 					<ul>
 						<li><a href="http://twitter.com/?status='+<?php echo $mostrador['titulo']; ?>' --> //People Revolution// +http://www.peoplerevolution.net?id=<?php echo $mostrador['id']; ?>;'"> <img src="imagenes/twitter.gif"> <span>Comparte en Twitter</span></a></li>
-						<li><a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://www.peoplerevolution.net?id=<?php echo $mostrador['id']; ?>&p[title]=<?php echo $mostrador['titulo']; ?>&p[summary]=<?php echo $mostrador['subtitulo']; ?>&p[images][0]=http://peoplerevolution.net/images_bd.php?id=$mostrador[id]&tam=2&aux=noticia
-"> <img src="imagenes/facebook.gif"> <span>Comparte en Facebook</span </a></li>
+						<li><a href="http://www.facebook.com/sharer.php?u=http://www.peoplerevolution.net?id=<?php echo $mostrador['id']; ?>"> <img src="imagenes/facebook.gif"> <span>Comparte en Facebook</span </a></li>
 					</ul>
 								
 				</div>  
