@@ -31,8 +31,9 @@
   -webkit-filter: drop-shadow(30px 30px 23px rgba(0,0,0,0.3));
   -moz-filter: drop-shadow(30px 30px 23px rgba(0,0,0,0.3));
   filter: drop-shadow(30px 30px 23px rgba(0,0,0,0.3));
+
 }
-#hexaflip-demo1,
+
 
 #hexaflip-demo1 .hexaflip-cube,
 #hexaflip-demo2 .hexaflip-cube {
@@ -53,11 +54,11 @@
 }
 #hexaflip-demo1 .hexaflip-cube > div:nth-child(1n+1),
 #hexaflip-demo2 .hexaflip-cube > div:nth-child(1n+1) {
-  background-color: #2E2E2E; /*Azul*/
+  background-color: #383838; 
 }
 #hexaflip-demo1 .hexaflip-cube > div:nth-child(2n+2),
 #hexaflip-demo2 .hexaflip-cube > div:nth-child(2n+2) {
-  background-color: #0174DF;
+  background-color: #0174DF; /*Azul*/
 }
 #hexaflip-demo1 .hexaflip-cube > div:nth-child(3n+3),
 #hexaflip-demo2 .hexaflip-cube > div:nth-child(3n+3) {
@@ -68,6 +69,7 @@
   background-color: #eee;
   color: #222;
 }
+
 
 #hexaflip-demo5 .hexaflip-cube > div {
   color: rgba(255,255,255,0.3);
@@ -103,12 +105,7 @@
   filter: alpha(opacity=80);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 }
-#prev {
-  float: left;
-}
-#next {
-  float: right;
-}
+
 #output {
   line-height: 2;
 }
