@@ -2,8 +2,11 @@
  <div class="cl">&nbsp;</div> 
  <div class="cnt">
 <table width="100%" border="0" align="center" cellpadding="2" cellspacing="2" bgcolor="<?=$color?>">
-    <td width="25%" valign="top"> <b><a name="<?=$id?>">
-      <?=$autor?></a>
+    <td width="25%" valign="top"> <b>
+      <?php
+      $idu= $_SESSION['id'];;
+      echo "<img src=images_bd.php?id=$idu&tam=1&aux=usuarios height=109 weight=54 alt=\"Imagen perfil usuario\" >"; ?>
+      <?=$autor?>
       </b><br>
       <font size="-2">Enviado el : <?=$enviado?></font>
       [ <a href="javascript:Enviar('./foro/respuesta.php?id=<?=$id?>&citar=1','contenido');">CITAR</a> ]
