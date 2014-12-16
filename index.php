@@ -50,15 +50,17 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
     <div id="logo">
       <!-- <h1><a href="http://www.peoplerevolution.net/">People<span>revolution</span></a></h1> -->
 	  <div id="hexaflip-demo1" class="demo"></div>
+	  <div id="hexaflip-demo2" class="demo"></div>
+	  <p class="description">Información y cultura al alcance de todo - SYSWEB Proyecto</p>
 	  <script src="js/hexaflip.js"></script>
     <script>
         var hexaDemo1,
             text1 = 'PEOPLE'.split(''),
             text2 = 'REVOLUTION'.split(''),
             settings = {
-                size: 40,
+                size: 30,
                 margin: 12,
-                fontSize: 10,
+                fontSize: 20,
                 perspective: 450
             },
             makeObject = function(a){
@@ -86,7 +88,6 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
         document.addEventListener('DOMContentLoaded', function(){
             hexaDemo1 = new HexaFlip(document.getElementById('hexaflip-demo1'), makeObject(text1), settings);
             hexaDemo2 = new HexaFlip(document.getElementById('hexaflip-demo2'), makeObject(text2), settings);
-            hexaDemo3 = new HexaFlip(document.getElementById('hexaflip-demo3'));
     
             setTimeout(function(){
                 hexaDemo1.setValue(getSequence(text1, true));
@@ -107,7 +108,6 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
         }, false);
     
     </script>
-      <p class="description">Información y cultura al alcance de todo - SYSWEB Proyecto</p>
 
     </div>
     <!-- / Logo -->

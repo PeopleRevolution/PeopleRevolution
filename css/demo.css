@@ -25,15 +25,15 @@
   filter: none;
 }
 .demo {
-  margin: 0 auto;
+  margin-top:10px;
+  margin-right: 0;
+  margin-bottom:5px;
   -webkit-filter: drop-shadow(30px 30px 23px rgba(0,0,0,0.3));
   -moz-filter: drop-shadow(30px 30px 23px rgba(0,0,0,0.3));
   filter: drop-shadow(30px 30px 23px rgba(0,0,0,0.3));
 }
 #hexaflip-demo1,
-#hexaflip-demo2 {
-  margin-bottom: 4rem;
-}
+
 #hexaflip-demo1 .hexaflip-cube,
 #hexaflip-demo2 .hexaflip-cube {
   opacity: 0.9;
