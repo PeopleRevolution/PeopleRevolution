@@ -98,10 +98,10 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
       <div id="search" class="block">
         <div class="block-bot">
           <div class="block-cnt">
-            <form action="javascript:Enviar('buscar.php','contenido')" method="post">
+            <form action="javascript:buscar()" method="post">
               <div class="cl">&nbsp;</div>
               <div class="fieldplace">
-                <input type="text" class="field" value="Buscar" title="Search" />
+                <input type="text" class="field" name="buscar" type="hidden" id="buscar" value="Buscar" title="Search" />
               </div>
               <input type="submit" class="button" value="GO" />
               <div class="cl">&nbsp;</div>
