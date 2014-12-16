@@ -1,17 +1,17 @@
-<table width="90%" border="0" cellspacing="2" cellpadding="2">
+<table width="100%" border="0" cellspacing="5" cellpadding="2">
 <form name="f" action="javascript:foro()" method="post">
     <input type="hidden" name="identificador" value="<?=$id?>">
     <tr> 
       <?php 
       $aux="hidden";
       if ($citar != '1') { ?>
-      <td width="30%" align="right">Titulo</td>
+      <td width="10%" align="right">Titulo</td>
       <?php $aux="text"; }?>
       <td><input type="<?=$aux?>" name="titulo" value="<?=$titulo?>"></td>
     </tr>
     <tr> 
-      <td width="30%" align="right">Mensaje</td>
-      <td><textarea name="mensaje" cols="50" rows="5"><?=$mensaje?></textarea></td>
+      <td width="80%" align="right">Mensaje</td>
+      <td><textarea name="mensaje" cols="80%" rows="30"><?=$mensaje?></textarea></td>
     </tr>
     <tr> 
       <td colspan="2" align="center"><input type="submit" name="Submit" value="Enviar Mensaje"></td>
