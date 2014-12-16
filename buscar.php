@@ -24,16 +24,7 @@ $resultado = mysql_query ("SELECT * FROM noticia WHERE titulo LIKE '%$buscar%' o
       <div class="block-bot">
           <div class="head">
             <div class="head-cnt">
-        <?php      if($tipo=='n')
-   { ?>
-              <h3>Publicaciones de Noticias</h3>
-
-              <?php } ?>
-                   <?php      if($tipo=='v')
-   { ?>
-              <h3>Publicaciones de Videos</h3>
-
-              <?php } ?>
+              <h3>Resultados de busqueda</h3>
               <div class="cl">&nbsp;</div>
             </div>
           </div>
