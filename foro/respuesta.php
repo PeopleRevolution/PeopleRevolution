@@ -1,8 +1,9 @@
 <?php
-require('../config.php');
-require('funciones.php');
 require('../conexion.php');
 user_login();
+require('../config.php');
+require('funciones.php');
+
 $id = $_GET["id"];
 $citar = $_GET["citar"];
 $resp = $_GET["resp"];
