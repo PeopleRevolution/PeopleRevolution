@@ -204,10 +204,10 @@ $aux = "true";
 <p>
 <?php if($replicaaux != 'NULL') {
 ?>
-<textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;" autofocus></textarea> 
+<textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #b7b7b7;" autofocus></textarea> 
 <?php } 
 else{ ?>
-<textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #87CEEB;"></textarea> 
+<textarea name="com" id="com" cols="91%" rows="15%" style="background-color: #b7b7b7;"></textarea> 
 <?php }?>
 </p><div></div>
 </p>
