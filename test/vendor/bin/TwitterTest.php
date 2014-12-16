@@ -2,12 +2,15 @@
 
 	namespace PeopleRevolution\test\vendor\bin;
  
-	use PeopleRevolution\inicio;
+	use PeopleRevolution\twitteroauth\twitteroauth;
 
-	class InicioTest extends \PHPUnit_Framework_TestCase
+	class TestTwitterOAuth extends \PHPUnit_Framework_TestCase
 	{
-		public function TestingFailConex()
+		public function TestaccessTokenURL()
 		{
-		$this-> assertTrue(true);
+			$shouldreturn = "https://api.twitter.com/1.1/";
+			$twitter = new TwitterOAuth;
+			$result = $twitter->$host;
+			$this->assertEquals($shouldreturn, $result);
 		}
 	}
