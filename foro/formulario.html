@@ -2,8 +2,12 @@
 <form name="f" action="javascript:foro()" method="post">
     <input type="hidden" name="identificador" value="<?=$id?>">
     <tr> 
+      <?php 
+      $aux="hidden";
+      if ($citar != '1') { ?>
       <td width="30%" align="right">Titulo</td>
-      <td><input type="text" name="titulo" value="<?=$titulo?>"></td>
+      <?php $aux="text"; }?>
+      <td><input type="<?=$aux?>" name="titulo" value="<?=$titulo?>"></td>
     </tr>
     <tr> 
       <td width="30%" align="right">Mensaje</td>

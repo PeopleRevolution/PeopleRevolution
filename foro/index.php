@@ -1,9 +1,10 @@
 <?php
+require('../conexion.php');
+user_login();
 require('../config.php');
 require('funciones.php');
 include('header.html');
-require('../conexion.php');
-user_login();
+
 /* Pedimos todos los temas iniciales (identificador==0)
 * y los ordenamos por ult_respuesta */
 $sql = "SELECT id, autor, titulo, fecha, respuestas, ult_respuesta ";

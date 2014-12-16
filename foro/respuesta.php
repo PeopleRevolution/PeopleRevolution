@@ -1,8 +1,9 @@
 <?php
-require('../config.php');
-require('funciones.php');
 require('../conexion.php');
 user_login();
+require('../config.php');
+require('funciones.php');
+
 $id = $_GET["id"];
 $citar = $_GET["citar"];
 $resp = $_GET["resp"];
@@ -22,6 +23,7 @@ if($citar==1)
 		$row["mensaje"] = "[citar]".$row["mensaje"]."[/citar]";
 	}
 	if($row["id"]==0) $row["id"]=$id;
+	$row["citar"]=$citar;
 }
 $template = implode("", file('formulario.html'));
 include('header.html');
