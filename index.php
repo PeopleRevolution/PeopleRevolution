@@ -53,6 +53,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 	  <div id="hexaflip-demo2" class="demo"></div>
 	  <p class="description">Información y cultura al alcance de todo - SYSWEB Proyecto</p>
 	  <script src="js/hexaflip.js"></script>
+	 </div>
     <script>
         var hexaDemo1,
             text1 = 'PEOPLE'.split(''),
@@ -109,7 +110,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
     
     </script>
 
-    </div>
+    
     <!-- / Logo -->
     <!-- Main Navigation --><!-- / Main Navigation -->
     <div class="cl">&nbsp;</div>
