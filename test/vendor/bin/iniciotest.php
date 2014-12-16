@@ -28,4 +28,15 @@
 			$result = $twitter->authenticateURL();
 			$this->assertEquals($shouldreturn, $result);
 	}
+	
+	public function testauthorizeURL()
+	{
+			
+			$consumer_key = 12345;
+			$consumer_secret = 123456;
+		    $shouldreturn = 'https://api.twitter.com/oauth/authorize';
+			$twitter = new TwitterOAuth($consumer_key, $consumer_secret, $oauth_token = NULL, $oauth_token_secret = NULL);
+			$result = $twitter->authorizeURL();
+			$this->assertEquals($shouldreturn, $result);
+	}
 }
