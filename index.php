@@ -17,6 +17,8 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 <title>People Revolution</title>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="css/hexaflip.css" rel="stylesheet" type="text/css">
+<link href="css/demo.css" rel="stylesheet" type="text/css">
 <!--[if IE 6]><link rel="stylesheet" href="css/ie6-style.css" type="text/css" media="all" /><![endif]-->
 <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
 <script src="js/fns.js" type="text/javascript"></script>
@@ -46,7 +48,65 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
     <div id="top-nav"></div>
     <!-- / Top Navigation --><!-- Logo -->
     <div id="logo">
-      <h1><a href="http://www.peoplerevolution.net/">People<span>revolution</span></a></h1>
+      <!-- <h1><a href="http://www.peoplerevolution.net/">People<span>revolution</span></a></h1> -->
+	  <div id="hexaflip-demo1" class="demo"></div>
+	  <script src="js/hexaflip.js"></script>
+    <script>
+        var hexaDemo1,
+            text1 = 'PEOPLE'.split(''),
+            text2 = 'REVOLUTION'.split(''),
+            settings = {
+                size: 40,
+                margin: 12,
+                fontSize: 10,
+                perspective: 450
+            },
+            makeObject = function(a){
+                var o = {};
+                for(var i = 0, l = a.length; i < l; i++){
+                    o['letter' + i] = a;
+                }
+                return o;
+            },
+            getSequence = function(a, reverse, random){
+                var o = {}, p;
+                for(var i = 0, l = a.length; i < l; i++){
+                    if(reverse){
+                        p = l - i - 1;
+                    }else if(random){
+                        p = Math.floor(Math.random() * l);
+                    }else{
+                        p = i;
+                    }
+                    o['letter' + i] = a[p];
+                }
+                return o;
+            };
+    
+        document.addEventListener('DOMContentLoaded', function(){
+            hexaDemo1 = new HexaFlip(document.getElementById('hexaflip-demo1'), makeObject(text1), settings);
+            hexaDemo2 = new HexaFlip(document.getElementById('hexaflip-demo2'), makeObject(text2), settings);
+            hexaDemo3 = new HexaFlip(document.getElementById('hexaflip-demo3'));
+    
+            setTimeout(function(){
+                hexaDemo1.setValue(getSequence(text1, true));
+                hexaDemo2.setValue(getSequence(text2, true));
+            }, 0);
+    
+            setTimeout(function(){
+                hexaDemo1.setValue(getSequence(text1));
+                hexaDemo2.setValue(getSequence(text2));
+            }, 1000);
+    
+            setTimeout(function(){
+                setInterval(function(){
+                    hexaDemo1.setValue(getSequence(text1, false, true));
+                    hexaDemo2.setValue(getSequence(text2, false, true));
+                }, 8000);
+            }, 10000);
+        }, false);
+    
+    </script>
       <p class="description">Información y cultura al alcance de todo - SYSWEB Proyecto</p>
 
     </div>
