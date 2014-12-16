@@ -78,7 +78,7 @@ if($filas_tot !=0){
             </small>
                   
                   </td>
-                  <td class="bocadillo" width="85%" bgcolor="#55667C" style = "margin-left:20px;">
+                  <td class="bocadillo" width="85%" bgcolor="#55667C" style="padding-left:10px";>
               <?php 
               echo "Comentario: ";
               echo $mostrador['com'];?>
