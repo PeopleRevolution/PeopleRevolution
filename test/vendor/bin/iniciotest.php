@@ -1,9 +1,9 @@
 <?php
 	include_once("../../../twitteroauth/twitteroauth.php");
 	
- class PruebaTest extends PHPUnit_Framework_TestCase
+  class iniciotest extends PHPUnit_Framework_TestCase
  {
-	public function accesstokenurltest()
+	public function testaccessTokenURL()
 	{
 			
 			$consumer_key = 12345;
@@ -18,7 +18,7 @@
 			$this->assertEquals($shouldreturn, $result);
 	}
 	
-	public function accesstokenurltest()
+	public function testauthenticateURL()
 	{
 			
 			$consumer_key = 12345;
