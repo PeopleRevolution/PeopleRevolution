@@ -51,7 +51,7 @@ if($filas_tot !=0){
             </a>
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td width="15%" height="60" bgcolor="#666666" style="border-style:inset; border-width:5px;">
+                  <td width="15%" height="60" bgcolor="#666666" style="border-style:solid; border-width:5px;">
                   <small class="date"> <p> 
                    <?php 
                     if ($idu == "0"){
@@ -107,7 +107,7 @@ if($filas_tot !=0){
               echo "Comentario: ";
               echo $mostrador2['com'];?>
               </div></td>
-                 <td width="15%" height="60" bgcolor="#666666" style="border-style:inset; border-width:5px;">
+                 <td width="15%" height="60" bgcolor="#666666" style="border-style:solid; border-width:5px;">
                   <small class="date"> <p> 
                    <?php 
                     if ($mostrador2['idu'] == "0"){
