@@ -78,11 +78,12 @@ if($filas_tot !=0){
             </small>
                   
                   </td>
-                  <td class="bocadillo" width="85%" bgcolor="#55667C" style="padding-left:10px";>
+                  <td width="85%">
+				  <div class="bocadillo" width="85%" height="100%">
               <?php 
               echo "Comentario: ";
               echo $mostrador['com'];?>
-              </td>
+              </div></td>
                 </tr>
               </table>
       
@@ -100,11 +101,12 @@ if($filas_tot !=0){
             <IMG SRC="./imagenes/20864.png" WIDTH=24 HEIGHT=29 BORDER=0 ALT="Un bebé">
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td class="bocadillo2" width="85%" bgcolor="#879DBA">
+                  <td  width="85%">
+				  <div class="bocadillo2" width="85%" height="100%">
               <?php 
               echo "Comentario: ";
               echo $mostrador2['com'];?>
-              </td>
+              </div></td>
                  <td width="15%" height="60" bgcolor="#666666">
                   <small class="date"> <p> 
                    <?php 
