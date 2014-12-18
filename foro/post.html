@@ -4,8 +4,15 @@
 <table width="100%" border="0" align="center" cellpadding="2" cellspacing="2" bgcolor="<?=$color?>">
     <td width="25%" valign="top"> <b>
       <?php
-      $idu= $_SESSION['id'];;
-      echo "<img src=images_bd.php?id=$idu&tam=1&aux=usuarios height=109 weight=54 alt=\"Imagen perfil usuario\" >"; ?>
+      $var = file_get_contents("http://www.peoplerevolution.net/images_bd.php?id=$iduf&tam=1&aux=usuarios");
+      if (empty($var)){
+	echo '</b><br />';
+	echo "<img src=imagenes/userg.png height=109 weight=54 alt=\"Imagen perfil usuario\" >";
+	}
+else{
+	echo '</b><br />';
+	echo "<img src=images_bd.php?id=$iduf&tam=1&aux=usuarios height=109 weight=54 alt=\"Imagen perfil usuario\" >";
+} ?>
       <?=$autor?>
       </b><br>
       <font size="-2">Enviado el : <?=$enviado?></font>
