@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 include_once("conexion.php");
 //recibimos la variable id enviada en el enlace por GET
 
@@ -6,15 +6,14 @@ include_once("conexion.php");
 $id = mysql_real_escape_string($_GET['id']); 
 //$id2 = $_POST["id"]; 
 $id2 = mysql_real_escape_string($_POST['id']); 
-$adminaux = $_SESSION[admin];
+$adminaux = $_SESSION['admin'];
 
 if ($id == "" and $id2 ==""){
-$id = $_SESSION[id];	
-$adminaux = $_SESSION[admin];	
-$nick = $_SESSION[nick];	
-$email = $_SESSION[email];	
-	
-	}
+$id = $_SESSION['id'];	
+$adminaux = $_SESSION['admin'];	
+$nick = $_SESSION['nick'];	
+$email = $_SESSION['email'];	
+}
 //conectamos a la base
 $connect= mysql_connect ("$servidor","$usuario","$password"); 
 //Seleccionamos la base
@@ -23,7 +22,7 @@ mysql_select_db("$database",$connect);
 
 if(isset($_POST['nick'])){
 error_reporting(E_ALL); 
-# Altura de el thumbnail en pÃxeles 
+# Altura de el thumbnail en píxeles 
 define("ALTURA", 100); 
 # Nombre del archivo temporal del thumbnail 
 define("NAMETHUMB", "/tmp/thumbtemp"); 
@@ -158,10 +157,10 @@ while($row=mysql_fetch_array($result)) { ?>
 <input name="id" type="hidden" id="id" value="<?php echo $id ?>" />
 <input name="adminaux" type="hidden" id="adminaux" value="<?php echo $adminaux ?>" />
 <p>Usuario:<br /> 
-<input name="nick" type="text" class="text" id="nick" value="<?php echo $row[nick] ?>" /> 
+<input name="nick" type="text" class="text" id="nick" value="<?php echo $row['nick'] ?>" /> 
 </p> 
 <p>Email:<br />
-  <input name="mail" type="text" class="text" id="mail" value="<?php echo $row[mail] ?>" /> 
+  <input name="mail" type="text" class="text" id="mail" value="<?php echo $row['mail'] ?>" /> 
 </p>
 <p>Introduce nueva contraseña para cambiarla o dejala en blanco</p> 
 <p>Nueva Contraseña (de más de 6 caracteres):<br />
@@ -171,14 +170,14 @@ while($row=mysql_fetch_array($result)) { ?>
 <input name="pass2" type="password" class="text" id="pass2" /> 
 </p>
 
-<?php if($row[admin] == "S") {  ?>
+<?php if($row['admin'] == "S") {  ?>
 <p>Seleccione si es administrador 
-  <input name="admin" type="checkbox" id="admin" value="S" <?php if (!(strcmp($row[admin],"S"))) {echo "checked=\"checked\"";} ?> />
+  <input name="admin" type="checkbox" id="admin" value="S" <?php if (!(strcmp($row['admin'],"S"))) {echo "checked=\"checked\"";} ?> />
 </p>
 <?php } ?>
 <div>
 <p><?php
-$img = $row[foto];
+$img = $row['foto'];
 if ($img == ""){
 	 echo "<img src=imagenes/userg.png height=109 alt=\"Imagen perfil usuario\" weight=54>";
 	}

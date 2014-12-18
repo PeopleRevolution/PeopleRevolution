@@ -1,4 +1,4 @@
-<?php include_once("config.php"); 
+﻿<?php include_once("config.php"); 
 include("conexion.php");
 include("paginator.php");
 $conex = mysql_connect ("$servidor","$usuario","$password"); 

@@ -1,4 +1,4 @@
-<?php 
+Ôªø<?php 
 include_once("conexion.php");
 //recibimos la variable id enviada en el enlace por GET
 
@@ -16,7 +16,7 @@ mysql_select_db("$database",$connect);
 
 if(isset($_POST['detalle'])){
 error_reporting(E_ALL); 
-# Altura de el thumbnail en pÌxeles 
+# Altura de el thumbnail en p√≠xeles 
 define("ALTURA", 100); 
 # Nombre del archivo temporal del thumbnail 
 define("NAMETHUMB", "/tmp/thumbtemp"); 
@@ -32,7 +32,7 @@ $tmp_name = $_FILES["foto"]["tmp_name"];
 $size = $_FILES["foto"]["size"]; 
 if(!in_array($type, $mimetypes)) {
 	echo'<script>parent.document.getElementById("mensaje").innerHTML="<div style=\"background-color:red;color:white;padding:4px;text-align:center;\">La imagen que has subido no es correcta.</div>";</script>';
-die("El archivo que subiste no es una Imagen v·lida"); }
+die("El archivo que subiste no es una Imagen v√°lida"); }
 switch($type) { 
 case $mimetypes[0]: 
 case $mimetypes[1]: 
@@ -105,7 +105,7 @@ echo'<script>parent.document.getElementById("contenido").innerHTML="<div style=\
 
 
 $result=mysql_query("select * from noticia where id='$id'",$connect);
-//Una vez seleccionados los registros los mostramos para su ediciÛn
+//Una vez seleccionados los registros los mostramos para su edici√≥n
 while($row=mysql_fetch_array($result)) { ?>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 <!--[if IE 6]><link rel="stylesheet" href="css/ie6-style.css" type="text/css" media="all" /><![endif]-->

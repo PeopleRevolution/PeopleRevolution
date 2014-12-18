@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 include("conexion.php");
  if(isset($_SESSION['id'])){
 	 
@@ -66,7 +66,7 @@ else
             </div>
             <div>
               <p>
-                <label>Contraseña:<br />
+                <label>ContraseÃ±a:<br />
                 </label>
                 <input type="password" class="field" name="mipass" />
               </p>
@@ -77,7 +77,7 @@ else
         </form>
 		
 		<div class="cl">&nbsp;</div>
-            <p class="center"><a href="javascript:Enviar('ayuda.php','contenido')">¿Ha olvidado su contraseña?</a></p>
+            <p class="center"><a href="javascript:Enviar('ayuda.php','contenido')">Â¿Ha olvidado su contraseÃ±a?</a></p>
 			<div class="cl">&nbsp;</div>
 			<ul class="icons">
 					<li><a href="registrotwitter.php" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>

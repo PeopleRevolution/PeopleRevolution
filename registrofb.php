@@ -1,6 +1,6 @@
 <?php 
 require 'config.php';
-include("conexion.php");
+//include("conexion.php");
 require 'src/facebook.php';  // Include facebook SDK file
 //require 'functions.php';  // Include functions
 $facebook = new Facebook(array(
@@ -86,7 +86,7 @@ if ($user) {
 
   
             $_SESSION['fecha']=    $ses["fecha"];
-            $_SESSION['nick']=    $ses["nick"];
+            $_SESSION['nick']=    utf8_encode($ses["nick"]);
             $_SESSION['mail']=    $ses["mail"];
             $_SESSION['ip']=        $ses["ip"];
             $_SESSION['admin']=     $ses["admin"];
