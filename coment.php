@@ -109,7 +109,9 @@ if($filas_tot !=0){
               <?php 
               echo "Comentario: ";
               echo $mostrador2['com'];?>
-              </div></td>
+              </div>
+			  <input type="button" style="margin-top:10px;" id="boton" value="Revolution" onclick="javascript: contador()" />
+			  </td>
                  <td width="15%" height="60">
 				 <div bgcolor="#666666" style="border-style:solid; border-width:5px; border-color:#666666;">
                   <small class="date"> <p> 
