@@ -51,7 +51,8 @@ if($filas_tot !=0){
             </a>
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td width="15%" height="60" bgcolor="#666666" style="border-style:solid; border-width:5px;">
+                  <td width="15%" height="60" >
+				  <div bgcolor="#666666" style="border-style:solid; border-width:5px;">
                   <small class="date"> <p> 
                    <?php 
                     if ($idu == "0"){
@@ -76,7 +77,7 @@ if($filas_tot !=0){
 <p> <a href="javascript:Enviar('coment.php?id=<?php echo $idn ?>&nickaux=<?php echo $nick ?>&idusu=<?php echo $idusu ?>&replicacom=<?php echo $idc ?>&start=<?php echo $start ?>','auxcom');">Replicar</a></p>
 
             </small>
-                  
+                </div>  
                   </td>
                   <td width="85%">
 				  <div class="bocadillo" width="85%" height="100%">
