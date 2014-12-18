@@ -111,11 +111,6 @@ if($filas_tot !=0){
 				  <div class="bocadillo2" width="85%" height="100%">
               <?php 
               echo "Comentario: ";
-              echo $mostrador2['com'];?>
-              </div>
-			  <input type="button" style="margin-top:10px;" id="boton" value="Revolution" onclick="javascript: contador()" />
-			  </td>
-=======
               echo utf8_encode($mostrador2['com']);?>
               </div></td>
                  <td width="15%" height="60">
