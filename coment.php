@@ -84,7 +84,9 @@ if($filas_tot !=0){
               <?php 
               echo "Comentario: ";
               echo $mostrador['com'];?>
-              </div></td>
+              </div>
+			  <input type="button" style="margin-left:85%; margin-top:10px;" id="boton" value="Revolution" onclick="javascript: contador()" />
+			  </td>
                 </tr>
               </table>
       

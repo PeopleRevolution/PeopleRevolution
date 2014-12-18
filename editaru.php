@@ -85,7 +85,7 @@ fclose($fp);
 //proceso de almacenamiento 
 //$fuente = $_POST["fuente"]; 
 //$categoria = $_POST["categoria"];
-$nick = mysql_real_escape_string($_GET['nick']);  
+$nick = mysql_real_escape_string($_POST['nick']);  
 $nick = (ucfirst($nick));
 $id = mysql_real_escape_string($_POST["id"]); 
 //$id = $_POST["id"]; 
