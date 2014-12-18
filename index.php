@@ -137,10 +137,10 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
               <div class="image"> <a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php
                       echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto añadido\"  width=\"51\" height=\"51\"  class=alignleft >"; ?></a> </div>
               <div class="cnt">
-                <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo $mostrador['titulo'] ?></a></h4>
+                <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo utf8_encode($mostrador['titulo']) ?></a></h4>
                 <p><?php 
                 
-                	$aux = $mostrador['detalle']; 
+                	$aux = utf8_encode($mostrador['detalle']); 
                         	$tam = strlen($aux);
                         	
                         	if ($tam > 19){
@@ -166,11 +166,16 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
         </div>
       </div>
       </div>
-      <div class="topv">
+              <div class="block">
+       <div id="topn"></div>
       <div class="block">
         <div class="block-bot">
-        <div id="comen">
-
+          <div class="head">
+            <div class="head-cnt">
+              <h3>Últimos Comentarios</h3>
+            </div>
+          </div>
+   <div id="comen">
 		<?php include("comen.php") ?>
   </div>
 
@@ -178,6 +183,8 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
       </div>
     </div>
     </div>
+     </div>
+      </div>
     <!-- / Sidebar -->
     <div class="cl">&nbsp;</div>
     <!-- Footer -->

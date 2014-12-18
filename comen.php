@@ -11,11 +11,7 @@ mysql_select_db ("$database", $conex);
 $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 0,4"); 
 ?>
 
-          <div class="head">
-            <div class="head-cnt">
-              <h3>Últimos Comentarios</h3>
-            </div>
-          </div>
+         
           <div id="comen">
           <div class="text-articles articles">
                                   <?php      while($mostrador = mysql_fetch_array($resultado2)) {
@@ -56,5 +52,4 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
             </div>
                            <?php 
 }?>
-          </div>
-          </div>
+        

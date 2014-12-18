@@ -135,7 +135,7 @@ while($row=mysql_fetch_array($result)) { ?>
 <input name="subtitulo" type="text" class="text" id="subtitulo" value="<?php echo utf8_encode($row['subtitulo']) ?>" size="50%" /> 
 </p> 
 <p> Detalle<br /> 
-<textarea name="detalle" id="detalle" cols="90%" rows="25%" tabindex="4" style="background-color: #87CEEB;"><?php echo utf8_encode($row['detalle']) ?></textarea> 
+<textarea name="detalle" id="detalle" cols="90%" rows="25%" tabindex="4" style="background-color: #b7b7b7;"><?php echo utf8_encode($row['detalle']) ?></textarea> 
 
 <div></p> 
 
