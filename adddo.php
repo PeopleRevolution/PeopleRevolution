@@ -106,7 +106,7 @@ $aux = "true";
    
             
 
-<form target="add" method="post" class="contacto" enctype="multipart/form-data" action="<?php echo basename($_SERVER['PHP_SELF'])?>" onSubmit="return validarproducto(this);" >
+<form target="add" method="post" class="contacto" enctype="multipart/form-data" action="<?php echo basename($_SERVER['PHP_SELF'])?>" onSubmit="return validarentrada(this);" >
 
 <div id="form"></div>
 <input name="fotoaux" type="hidden" id="fotoaux" value="S" />
@@ -126,7 +126,7 @@ $aux = "true";
   <input name="foto" type="file" class="text" id="foto" />
 </div>
 </p>
-<button class="button button-left"  >Añadir</button> 
+<button class="button button-left" >Añadir</button> 
 
 </form>
 </div>

@@ -7,11 +7,15 @@
               <h3>
                 <?php if ($ed == 'add'){
               	$ed='adddo.php';
+                $scroll= "no";
+                $altura= "550";
               	echo "Añadir Entrada";}?>
               	
               	<?php if ($ed == 'edit'){
               	$ed='editardo.php?id=';
               	$ed=$ed.$_GET["id"];
+                $scroll= "no";
+                $altura= "670";
               	echo "Editar Entrada";}?>
               </h3>
       
@@ -21,7 +25,7 @@
 
    
         
-<iframe src="<?php echo $ed?>" name="add" width="99%" height="550" marginheight="0" marginwidth="0" noresize scrolling="No" frameborder="0"></iframe>
+<iframe src="<?php echo $ed?>" name="add" width="99%" height="<?php echo $altura?>" marginheight="0" marginwidth="0" noresize scrolling="<?php echo $scroll?>" frameborder="0"></iframe>
 
 </div>
 </div>

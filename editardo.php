@@ -1,5 +1,6 @@
 ﻿<?php 
 include_once("conexion.php");
+@mysql_query("SET NAMES 'utf8'"); 
 //recibimos la variable id enviada en el enlace por GET
 
 //$id=$_GET[id];
@@ -122,19 +123,19 @@ while($row=mysql_fetch_array($result)) { ?>
 
 <div id="correcto">
      
-<form target="edit" method="post" class="contacto" enctype="multipart/form-data" action="<?php echo basename($_SERVER['PHP_SELF'])?>" >
+<form target="add" method="post" class="contacto" enctype="multipart/form-data" action="<?php echo basename($_SERVER['PHP_SELF'])?>" onSubmit="return editarentrada(this);" >
 <div id="form"></div>
 <div id="mensaje"></div>
-<input name="id" type=hidden id="id" value="<?php echo $row[id] ?>"/>
+<input name="id" type=hidden id="id" value="<?php echo $row['id'] ?>"/>
 <input name="fotoaux" type="hidden" id="fotoaux" value="N" />
 <p>Titulo<br /> 
-<input name="titulo" type="text" class="text" id="titulo" value="<?php echo $row[titulo] ?>" /> 
+<input name="titulo" type="text" class="text" id="titulo" value="<?php echo utf8_encode($row['titulo']) ?>" /> 
 </p> 
 <p>Subtitulo<br /> 
-<input name="subtitulo" type="text" class="text" id="subtitulo" value="<?php echo $row[subtitulo] ?>" size="50%" /> 
+<input name="subtitulo" type="text" class="text" id="subtitulo" value="<?php echo utf8_encode($row['subtitulo']) ?>" size="50%" /> 
 </p> 
 <p> Detalle<br /> 
-<textarea name="detalle" id="detalle" cols="100%" rows="25%" tabindex="4" style="background-color: #87CEEB;"><?php echo $row[detalle] ?></textarea> 
+<textarea name="detalle" id="detalle" cols="90%" rows="25%" tabindex="4" style="background-color: #87CEEB;"><?php echo utf8_encode($row['detalle']) ?></textarea> 
 
 <div></p> 
 
@@ -149,6 +150,7 @@ while($row=mysql_fetch_array($result)) { ?>
 </div>
 </div>
 </div>
+
 <?php
 }
 mysql_free_result($result);

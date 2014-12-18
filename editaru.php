@@ -1,5 +1,6 @@
 ﻿<?php 
 include_once("conexion.php");
+@mysql_query("SET NAMES 'utf8'"); 
 //recibimos la variable id enviada en el enlace por GET
 
 //$id=$_GET[id];
@@ -157,7 +158,7 @@ while($row=mysql_fetch_array($result)) { ?>
 <input name="id" type="hidden" id="id" value="<?php echo $id ?>" />
 <input name="adminaux" type="hidden" id="adminaux" value="<?php echo $adminaux ?>" />
 <p>Usuario:<br /> 
-<input name="nick" type="text" class="text" id="nick" value="<?php echo $row['nick'] ?>" /> 
+<input name="nick" type="text" class="text" id="nick" value="<?php echo utf8_encode($row['nick']) ?>" /> 
 </p> 
 <p>Email:<br />
   <input name="mail" type="text" class="text" id="mail" value="<?php echo $row['mail'] ?>" /> 
@@ -170,7 +171,7 @@ while($row=mysql_fetch_array($result)) { ?>
 <input name="pass2" type="password" class="text" id="pass2" /> 
 </p>
 
-<?php if($row['admin'] == "S") {  ?>
+<?php if($adminaux == "S") {  ?>
 <p>Seleccione si es administrador 
   <input name="admin" type="checkbox" id="admin" value="S" <?php if (!(strcmp($row['admin'],"S"))) {echo "checked=\"checked\"";} ?> />
 </p>

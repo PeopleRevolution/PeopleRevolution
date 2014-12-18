@@ -27,10 +27,10 @@ $resultado = mysql_query ("SELECT * FROM noticia ORDER BY fecha DESC LIMIT $star
 
 ?>
 <p><span class="row-articles articles">
-<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
 </span></p>
 <div id="correcto">
 <div class="block">
+
       <div class="block-bot">
           <div class="head">
             <div class="head-cnt">
@@ -39,6 +39,7 @@ $resultado = mysql_query ("SELECT * FROM noticia ORDER BY fecha DESC LIMIT $star
             </div>
           </div>
           <div class="row-articles articles">
+            <?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
             <table width="93%" border="1" align="center" cellpadding="0" cellspacing="0" class="tablas">
   <?php
 while($mostrador = mysql_fetch_array($resultado)) 
@@ -50,9 +51,10 @@ while($mostrador = mysql_fetch_array($resultado))
 ?>
               <tr>
     <td width="27%"><?php echo "<img src=images_bd.php?id=$mostrador[id]&tam=1&aux=noticia alt=\"Imagen producto\" height=279 width=432>"?></td>
-    <td width="73%" bgcolor="<?php echo $color; ?>" class="tablas"> <p><?php echo $mostrador['titulo'] ?></p>
-    <p><?php echo $mostrador['cop'] ?></p>
-    <p><?php echo $mostrador['precio'] ?></p>
+    <td width="73%" bgcolor="<?php echo $color; ?>" class="tablas"> <p><?php echo utf8_encode($mostrador['titulo']) ?></p>
+    <p>-------------------------------------------</p>
+    <p><?php echo utf8_encode($mostrador['subtitulo']) ?></p>
+     <p>-------------------------------------------</p>
     <p><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');">Detallar entrada</a></p>
    <?php if(isset($_SESSION['id'])){?>
      <p><a href="javascript:Enviar('edicion.php?ed=edit&id=<?php echo $mostrador['id']; ?>','contenido');">Editar entrada</a></p>
@@ -61,17 +63,16 @@ while($mostrador = mysql_fetch_array($resultado))
     </td>
   </tr>
 
-
   
 <?php
 } 
 mysql_close($conex); 
 ?>
 </table>
+<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
         </div>
 </div>
 </div>
 </div>
 <p><span class="row-articles articles">
-<?php paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
 </span></p>
