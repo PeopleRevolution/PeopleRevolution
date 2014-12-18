@@ -158,7 +158,7 @@ while($row=mysql_fetch_array($result)) { ?>
 <input name="id" type="hidden" id="id" value="<?php echo $id ?>" />
 <input name="adminaux" type="hidden" id="adminaux" value="<?php echo $adminaux ?>" />
 <p>Usuario:<br /> 
-<input name="nick" type="text" class="text" id="nick" value="<?php echo utf8_encode($row['nick']) ?>" /> 
+<input name="nick" type="text" class="text" id="nick" value="<?php echo $row['nick'] ?>" /> 
 </p> 
 <p>Email:<br />
   <input name="mail" type="text" class="text" id="mail" value="<?php echo $row['mail'] ?>" /> 

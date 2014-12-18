@@ -55,7 +55,7 @@ if ($img == ""){
   }
 else
  echo "<img src=images_bd.php?id=$mostrador[id]&tam=1&aux=usuarios height=109 weight=54 alt=\"Imagen perfil de usuario\" >"; ?></p>
-    <p>Usuario: <?php echo $mostrador['nick'] ?> </p>
+    <p>Usuario: <?php echo utf8_encode($mostrador['nick']) ?> </p>
     <a href="javascript:Enviar('editaru.php?id=<?php echo $mostrador['id']; ?>','contenido');">Editar usuario</a></p>
           <p><a href="javascript:borrar('<?php echo $mostrador['id']; ?>','usuarios');">Borrar usuario</a></p></td>
     <td width="73%" bgcolor="<?php echo $color ?>" class="tablas"> <?php
