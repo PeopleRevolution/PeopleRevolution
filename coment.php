@@ -52,7 +52,7 @@ if($filas_tot !=0){
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="15%" height="60" >
-				  <div bgcolor="#666666" style="border-style:solid; border-width:5px;">
+				  <div bgcolor="#666666" style="border-style:solid; border-width:5px; border-color:#666666;">
                   <small class="date"> <p> 
                    <?php 
                     if ($idu == "0"){
@@ -108,7 +108,8 @@ if($filas_tot !=0){
               echo "Comentario: ";
               echo $mostrador2['com'];?>
               </div></td>
-                 <td width="15%" height="60" bgcolor="#666666" style="border-style:solid; border-width:5px;">
+                 <td width="15%" height="60">
+				 <div bgcolor="#666666" style="border-style:solid; border-width:5px; border-color:#666666;">
                   <small class="date"> <p> 
                    <?php 
                     if ($mostrador2['idu'] == "0"){
@@ -130,7 +131,7 @@ if($filas_tot !=0){
         echo "<img src=images_bd.php?id=$idu2&tam=1&aux=usuarios height=95 weight=39 alt=\"Imagen perfil usuario\" >";}
               
               ?></p></small>
-                  
+                  </div>
                   </td>
                 </tr>
 
