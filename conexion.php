@@ -1,9 +1,10 @@
-<?php include_once("config.php");
+ï»¿<?php 
+@session_start();
+include_once("config.php");
 $conectar = @mysql_connect($servidor,$usuario,$password) or exit('Datos de conexion incorrectos.');
 mysql_select_db($database) or exit('No existe la base de datos.');    
-/*En este archivo también pondremos unas funciones necesarias para el registro y el login*/    
-session_start();
-/*Función que se encarga de eliminar codigo malicioso de las variables.*/
+/*En este archivo tambiÃ©n pondremos unas funciones necesarias para el registro y el login*/    
+/*FunciÃ³n que se encarga de eliminar codigo malicioso de las variables.*/
 function limpiar($var)
 {
 
@@ -13,7 +14,7 @@ function limpiar($var)
     return $var;
 }
 
-/*Función que se encarga de validar el email de registro para que sea correcto.*/
+/*FunciÃ³n que se encarga de validar el email de registro para que sea correcto.*/
 function validar_email($email){
     $mail_correcto = 0; 
     //compruebo unas cosas primeras 

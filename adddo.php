@@ -1,8 +1,7 @@
 <?php
  include_once("conexion.php");
  user_login();
-//smysql_query ("SET NAMES 'utf8'");
-
+@mysql_query("SET NAMES 'utf8'"); 
 if($_POST['titulo']!=""){
 
 // Verificamos que el formulario no ha sido enviado aun 

@@ -1,4 +1,4 @@
-<?php $ed = (isset($_GET["ed"])) ? $_GET["ed"] : exit();
+﻿<?php $ed = (isset($_GET["ed"])) ? $_GET["ed"] : exit();
 ?>
 <div class="block">
       <div class="block-bot">

@@ -1,7 +1,10 @@
-<?php 
+﻿<?php 
+  require('conexion.php');
   include_once("config.php"); 
   include("paginator.php");
-  $idua = $_SESSION['id']; 
+  $idu= $_SESSION['id'];
+  $idua = $_SESSION['id'];
+
   //echo "Me vacila el php ".$idua;
  // $id = $_GET["id"];
   //$id = mysql_real_escape_string($_GET["id"]);
@@ -46,7 +49,7 @@ if($filas_tot !=0){
               $idu= $mostrador['idu'];
               $img= $mostrador['foto'];
               $idc= $mostrador['idc'];
-              $nick= $mostrador['nick'];
+              $nick= utf8_encode($mostrador['nick']);
               ?> 
             </a>
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -59,7 +62,7 @@ if($filas_tot !=0){
                     echo "Publicado por: Invitado ";}
                     else{
                       echo "Publicado por: ";
-                      echo $mostrador['nick'];
+                      echo utf8_encode($mostrador['nick']);
                   }?>
 			         <p> <?php echo $mostrador['fecha'] ?></p>
               <?php	
@@ -83,7 +86,7 @@ if($filas_tot !=0){
 				  <div class="bocadillo" width="85%" height="100%">
               <?php 
               echo "Comentario: ";
-              echo $mostrador['com'];?>
+              echo utf8_encode($mostrador['com']);?>
               </div>
 			  <input type="button" style="margin-left:85%; margin-top:10px;" id="boton" value="Revolution" onclick="javascript: contador()" />
 			  </td>
@@ -108,7 +111,7 @@ if($filas_tot !=0){
 				  <div class="bocadillo2" width="85%" height="100%">
               <?php 
               echo "Comentario: ";
-              echo $mostrador2['com'];?>
+              echo utf8_encode($mostrador2['com']);?>
               </div></td>
                  <td width="15%" height="60">
 				 <div bgcolor="#666666" style="border-style:solid; border-width:5px; border-color:#666666;">
@@ -118,7 +121,7 @@ if($filas_tot !=0){
                     echo "Replicado por: Invitado ";}
                     else{
                       echo "Replicado por: ";
-                      echo $mostrador2['nick'];
+                      echo utf8_encode($mostrador2['nick']);
                   }?>
                <p> <?php echo $mostrador2['fecha'] ?></p>
               <?php 

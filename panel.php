@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 ?>
 <div class="block">
@@ -51,15 +51,15 @@ else{
     <?php if ($admin == 'S'){?>
      <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-              <td width="20%"><img src="imagenes/blue-add-button.jpg" alt="Boton de aÒadir" width="110" height="100" /></td>
+              <td width="20%"><img src="imagenes/blue-add-button.jpg" alt="Boton de aÃ’adir" width="110" height="100" /></td>
               <td width="20%" align="center"><img src="imagenes/ACTUALIZACIONES.jpg" alt="Boton de modificar" width="110" height="100" /></td>
               <td width="20%"><img src="imagenes/users.jpg" alt="Boton de preferencias" width="110" height="100" /> </td>
-                    <td width="20%"><img src="imagenes/consejo-administracion.jpg" alt="Boton de administraciÛn" width="110" height="100" /> </td>
+                    <td width="20%"><img src="imagenes/consejo-administracion.jpg" alt="Boton de administraciÃ›n" width="110" height="100" /> </td>
               
               <td width="20%"><img src="imagenes/16581346-logout-blue-glossy-icon-on-white-background.jpg" alt="Boton de desconectar" width="110" height="100" /></td>
     </tr>
             <tr>
-              <td><a href="javascript:Enviar('edicion.php?ed=add','contenido')">A–adir Entrada</a></td>
+              <td><a href="javascript:Enviar('edicion.php?ed=add','contenido')">AÃ±adir Entrada</a></td>
               <td><a href="javascript:Enviar('addm.php','contenido')">Modificar/Borrar Entrada</a></td>
              <td><a href="javascript:Enviar('editaru.php','contenido');">Preferencias</a></td>			
              <td><a href="javascript:Enviar('preferencias.php','contenido')">Administrar</a></td> 

@@ -2,7 +2,7 @@
 session_start();
 require_once('twitteroauth/twitteroauth.php');
 include('config.php');
-include("conexion.php");
+//include("conexion.php");
 
 
 if(isset($_GET['oauth_token']))
@@ -52,7 +52,7 @@ if(isset($_GET['oauth_token']))
     		    $ses = @mysql_fetch_assoc($b_user) ;
     		    $_SESSION['id']= $twid;
             	$_SESSION['fecha']=    $ses["fecha"];
-            	$_SESSION['nick']=    $ses["nick"];
+            	$_SESSION['nick']=    utf8_encode($ses["nick"]);
             	$_SESSION['mail']=    $ses["mail"];
             	$_SESSION['ip']=        $ses["ip"];
             	$_SESSION['admin']=     $ses["admin"];

@@ -1,4 +1,4 @@
-<?php      
+ï»¿<?php      
 
     include_once("config.php"); 
 $conex = mysql_connect ("$servidor","$usuario","$password"); 
@@ -13,7 +13,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 
           <div class="head">
             <div class="head-cnt">
-              <h3>Últimos Comentarios</h3>
+              <h3>Ãšltimos Comentarios</h3>
             </div>
           </div>
           <div id="comen">
@@ -31,7 +31,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
               else{
               while($mostrador3 = mysql_fetch_array($resultado3)) {
               echo ". Publicado por: ";
-              echo $mostrador3['nick'];
+              echo utf8_encode($mostrador3['nick']);
               }}
               ?>
               </small>
@@ -40,15 +40,15 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
               $resultado4 = mysql_query ("SELECT * FROM noticia WHERE id=$idn");
               while($mostrador4 = mysql_fetch_array($resultado4)) {
               ?> <p> <?php 
-              echo "Publicaci—n: ";
-              echo $mostrador4['titulo'];
+              echo "PublicaciÃ³n: ";
+              echo utf8_encode($mostrador4['titulo']);
               }
               ?></p></a>
               <p><?php 
               echo "Comentario: ";
               $comenaux = $mostrador['com'];
               for ($i = 0 ; $i <= 55; $i++){
-              echo $comenaux[$i];
+              echo utf8_encode($comenaux[$i]);
               } 
               echo "...";
 			  ?></a>

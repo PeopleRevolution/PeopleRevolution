@@ -1,11 +1,5 @@
-<?php
-include("conexion.php"); include_once("config.php");
- if(isset($_SESSION['id'])){
-	$id= $_SESSION['id'];
-	
- }
- 
-
+﻿<?php
+ include_once("config.php");
 $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
 { 
@@ -34,7 +28,7 @@ while($mostrador = mysql_fetch_array($resultado))
       <div class="block-bot">
           <div class="head">
             <div class="head-cnt">
-              <h3><?php echo $mostrador['titulo'] ?></h3>
+              <h3><?php echo utf8_encode($mostrador['titulo']) ?></h3>
       
             </div>
           </div>
@@ -46,7 +40,7 @@ while($mostrador = mysql_fetch_array($resultado))
              <table width="100%" border="0">
                <tr>
                  <td width="60%"><?php echo "<img src=images_bd.php?id=$mostrador[id]&tam=1&aux=noticia alt=\"Imagen producto\" height=279 width=432>"?></td>
-                 <td><p><?php echo $mostrador['subtitulo'];?></p></td>
+                 <td><p><?php echo utf8_encode($mostrador['subtitulo']);?></p></td>
                </tr>
              </table>
                           <?php 
@@ -57,11 +51,11 @@ while($mostrador = mysql_fetch_array($resultado))
              </p> <?php 
               
               echo "Publicado por: ";
-              echo $mostrador3['nick'];?>
+              echo utf8_encode($mostrador3['nick']);?>
 			  <?php echo "el ".$mostrador['fecha']; }?></p></small>
              <p><br>
              </p>
-             <p><br><?php echo $mostrador['detalle'];?></p>
+             <p><br><?php echo utf8_encode($mostrador['detalle'])?></p>
 
             
 </div>   
@@ -74,7 +68,6 @@ while($mostrador = mysql_fetch_array($resultado))
 <p>
 
   <?php }mysql_close($conex); 
-$idu= $_SESSION['id'];
 ?>
 <div id="auxcom">
 <?php

@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 include('config.php');
 include_once("conexion.php");
 ?>
@@ -25,7 +25,7 @@ $b_user= mysql_query("SELECT * FROM usuarios WHERE verificar='$id'");
             	$_SESSION['mail']=    $ses["mail"];
             	$_SESSION['ip']=        $ses["ip"];
             	$_SESSION['admin']=     $ses["admin"];
-				$_SESSION[foto]=     $ses[foto];
+				$_SESSION['foto']=     $ses['foto'];
 
 
 mysql_query("UPDATE usuarios SET verificar='$verificar' WHERE verificar='$id'",$connect);
