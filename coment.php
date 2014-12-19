@@ -1,4 +1,5 @@
 ﻿<?php 
+@mysql_query("SET NAMES 'utf8'");
   require('conexion.php');
   include_once("config.php"); 
   include("paginator.php");
@@ -88,7 +89,7 @@ if($filas_tot !=0){
               echo "Comentario: ";
               echo utf8_encode($mostrador['com']);?>
               </div>
-			  <input type="button" style="margin-left:85%; margin-top:10px;" id="boton" value="Revolution" onclick="javascript: contador()" />
+			  <input type="button" style="margin-left:85%; margin-top:10px;" id="boton" value="Revolution" onclick="javascript:contador()" />
 			  </td>
                 </tr>
               </table>

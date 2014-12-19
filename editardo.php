@@ -1,4 +1,5 @@
 ﻿<?php 
+@ob_start("ob_gzhandler");
 include_once("conexion.php");
 @mysql_query("SET NAMES 'utf8'"); 
 //recibimos la variable id enviada en el enlace por GET
@@ -101,7 +102,7 @@ $sql = "UPDATE noticia SET titulo='$titulo', subtitulo='$subtitulo', detalle='$d
 
 mysql_query($sql, $connect) or die(mysql_error($connect)); 
 echo'<script>parent.document.getElementById("contenido").innerHTML="<div style=\"background-color:green;color:white;padding:4px;text-align:center;\">Entrada editada correctamente.</div>";</script>';
- 
+header("Location: seccion.php?tipo=n");
 }
 
 

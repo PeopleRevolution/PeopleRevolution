@@ -1,4 +1,5 @@
 <?php
+@ob_start("ob_gzhandler");
 require('../conexion.php');
 @user_login();
 $autor = $_SESSION["nick"];
@@ -12,7 +13,6 @@ $foto = "S";
 if(empty($titulo)) $titulo = "Sin título";
 //Evitamos que el usuario ingrese HTML
 $mensaje = htmlentities($mensaje);
-
 // Grabamos el mensaje en la base.
 $sql = "INSERT INTO foro (autor, titulo, mensaje, identificador, fecha, ult_respuesta, iduf) ";
 $sql.= "VALUES ('$autor','$titulo','$mensaje','$ident',NOW(),NOW(),'$iduf')";
@@ -25,8 +25,8 @@ if(!empty($ident))
 	$sql = "UPDATE foro SET respuestas=respuestas+1, ult_respuesta=NOW()";
 	$sql.= " WHERE id = '$ident'";
 	$rs = mysql_query($sql, $con);
-	@Header("Location: foro.php?id=$ident#$ult_id");
+	header("Location: foro.php?id=$ident#$ult_id");
 	exit();
 }
-@Header("Location: index.php");
+header("Location: index.php");
 ?>

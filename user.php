@@ -1,5 +1,5 @@
-﻿<?php
-include("conexion.php");
+﻿<?php include("conexion.php"); ?>
+<?php
  if(isset($_SESSION['id'])){
 	 
 	 ?>
@@ -84,11 +84,8 @@ else
 					<li><a href="registrofb.php" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
 					
 			</ul>
-
 	</div>
 	</div>
-            
-
     </div>
   </div>
 </div>

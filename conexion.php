@@ -13,7 +13,6 @@ function limpiar($var)
     $var = str_replace(chr(160),'',$var);
     return $var;
 }
-
 /*Función que se encarga de validar el email de registro para que sea correcto.*/
 function validar_email($email){
     $mail_correcto = 0; 
@@ -43,7 +42,6 @@ function validar_email($email){
     else 
        return 0;
 }
-
 /*Funcion que se encarga de validar si el usuario esta registrado en el sistema*/
 function user_login()
 {
