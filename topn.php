@@ -1,5 +1,6 @@
 ﻿<?php
     include_once("config.php"); 
+    include("paginator.php"); 
 $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
 { 
@@ -25,6 +26,7 @@ $resultado = mysql_query ("SELECT * FROM noticia order by top desc LIMIT $start,
             </div>
           </div>
           <div class="row-articles articles">
+           <?php  paginator(array_pop(explode('/', $_SERVER['PHP_SELF'])),$start,$filas_tot,$aux,'0'); ?>
 <?php      
 if ($aux !=0){
             
@@ -36,8 +38,8 @@ if ($mostrador != ""){ $aux = "true";
               <div class="image"> <a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php
                       echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto añadido\"  width=\"194\" height=\"99\"  class=alignleft >"; ?></a> </div>
               <div class="cnt">
-                <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo echo utf8_encode(($mostrador['titulo']); ?></a></h4>
-                <p><?php echo echo utf8_encode($mostrador['detalle']); ?></p>
+                <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo utf8_encode($mostrador['titulo']); ?></a></h4>
+                <p><?php echo utf8_encode($mostrador['detalle']); ?></p>
                 <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer Más</a></pre>
               </div>
               <div class="cl">&nbsp;</div>
