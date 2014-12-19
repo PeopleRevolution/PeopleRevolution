@@ -55,7 +55,7 @@ if ($mostrador != ""){ $aux3 = "true";
                         	if ($tam > 99){
 
                         	for ($i = 0; $i <= 100; $i++) {
-    						echo utf8_encode($aux[$i]);
+    						echo $aux[$i];
 							}
 							echo "...";
 							}
