@@ -1,5 +1,5 @@
 ﻿<?php 
-@mysql_query("SET NAMES 'utf8'");
+  @ob_start("ob_gzhandler");
   require('conexion.php');
   include_once("config.php"); 
   include("paginator.php");
@@ -26,6 +26,7 @@ $resultado = mysql_query ("SELECT * FROM comentarios WHERE id=$id order by fecha
 $filas_tot = mysql_num_rows($resultado);
 $aux=ceil($filas_tot/5);
 $resultado = mysql_query ("SELECT distinct com,comentarios.fecha,nick,usuarios.foto,comentarios.idu,replica,idc,noticia.id FROM noticia INNER JOIN comentarios INNER JOIN usuarios WHERE noticia.id=comentarios.id and usuarios.id=comentarios.idu and noticia.id=$id group by idc order by fecha desc LIMIT $start, $end"); 
+mysql_query("SET NAMES 'utf8'");
 
 if($filas_tot !=0){
 ?>
