@@ -374,10 +374,10 @@ function borrar(id,tipo){
 }
 
 function buscar(){
-		aux= "noticias.php?criterio=";
-		criterio= document.buscar.criterio.value;
+		aux= "buscar.php?criterio=";
+		var buscar = document.getElementById("buscar").value;
 	
-	final = aux + criterio;
+	final = aux + buscar;
 	Enviar(final,'contenido');
 }
 

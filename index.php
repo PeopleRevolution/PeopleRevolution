@@ -103,7 +103,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
               <div class="fieldplace">
                 <input type="text" class="field" name="buscar" type="hidden" id="buscar" value="Buscar" title="Search" />
               </div>
-              <input type="submit" class="button" value="GO" />
+              <input type="submit" class="button" value="BUSCAR" />
               <div class="cl">&nbsp;</div>
             </form>
           </div>
