@@ -25,8 +25,10 @@ if(!empty($ident))
 	$sql = "UPDATE foro SET respuestas=respuestas+1, ult_respuesta=NOW()";
 	$sql.= " WHERE id = '$ident'";
 	$rs = mysql_query($sql, $con);
-	header("Location: foro.php?id=$ident#$ult_id");
+	//header("Location: foro.php?id=$ident#$ult_id");
+	echo"<script language="javascript">window.location="foro.php?id=$ident#$ult_id"</script>;"
 	exit();
 }
-header("Location: index.php");
+//header("Location: index.php");
+echo"<script language="javascript">window.location="index.php"</script>;"
 ?>
