@@ -54,7 +54,7 @@ $cabeceras .= 'From: PeopleRevolution <admin@peoplerevolution.net>' . "\r\n";
 
 	//mando el correo...
 	mail($mail,"Registro en PeopleRevolution",$cuerpo,$cabeceras);
-	 } }}
+	 } }
 ?>
 		 
 <div id="correcto">
