@@ -420,5 +420,12 @@ btn.value = "Revolution (" + i + ")";
       //"this" is the element clicked on
      $(this).addClass("first-active");
  });
- });*/
+ });
 
+$('#menu li a').click(function(){
+  $('#menu li a').removeClass('highlight');
+  $(this).addClass('highlight');
+});
+
+
+*/
