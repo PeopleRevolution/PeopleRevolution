@@ -7,14 +7,14 @@
               <h3>
                 <?php if ($ed == 'add'){
               	$ed='adddo.php';
-                $scroll= "no";
+                $scroll= "yes";
                 $altura= "550";
               	echo "Añadir Entrada";}?>
               	
               	<?php if ($ed == 'edit'){
               	$ed='editardo.php?id=';
               	$ed=$ed.$_GET["id"];
-                $scroll= "no";
+                $scroll= "yes";
                 $altura= "670";
               	echo "Editar Entrada";}?>
               </h3>
