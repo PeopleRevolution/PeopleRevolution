@@ -90,7 +90,7 @@ if($filas_tot !=0){
               echo "Comentario: ";
               echo utf8_encode($mostrador['com']);?>
               </div>
-			  <input type="button" id="boton" value="Revolution" onclick="javascript: contador()" />
+			  <input type="button" id="boton" class="revo1" value="Revolution" onclick="javascript: contador()" />
 			  </td>
                 </tr>
               </table>
@@ -114,7 +114,9 @@ if($filas_tot !=0){
               <?php 
               echo "Comentario: ";
               echo utf8_encode($mostrador2['com']);?>
-              </div></td>
+              </div>
+			  <input type="button" id="boton" class="revo2" value="Revolution" onclick="javascript: contador()" />
+			  </td>
                  <td width="15%" height="60">
 				 <div bgcolor="#666666" style="border-style:solid; border-width:5px; border-color:#666666;">
                   <small class="date"> <p> 
