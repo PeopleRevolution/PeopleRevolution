@@ -415,8 +415,8 @@ btn.value = "Revolution (" + i + ")";
 }
 
 
-$('#sort-nav ul li').click(function(){
+/*$('#sort-nav ul li').click(function(){
   $('#sort-nav a').removeClass('first active first-active');
   $(this).addClass('first active first-active');
-});
+});*/
 
