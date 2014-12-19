@@ -63,9 +63,9 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
     <div class="cl">&nbsp;</div>
     <!-- Sort Navigation -->
     <div id="sort-nav">
-      <div class="bg-right">
-        <div class="bg-left">
-          <div class="cl"></div>
+      
+        <div id="bg" class="bg-left">
+      
           <ul>
             <li class="first active first-active"><a href="javascript:Enviar('inicio.php','contenido','4')">Inicio</a><span class="sep">&nbsp;</span></li>
             <li><a href="javascript:Enviar('seccion.php?tipo=n','contenido')">Noticias </a><span class="sep">&nbsp;</span></li>
@@ -76,7 +76,6 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
           </ul>
           <div class="cl">&nbsp;</div>
         </div>
-      </div>
     </div>
     <!-- / Sort Navigation -->
   </div>
