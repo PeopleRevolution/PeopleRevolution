@@ -49,13 +49,13 @@ if ($mostrador != ""){ $aux3 = "true";
                       echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto añadido\"  width=\"194\" height=\"99\"  class=alignleft >"; ?></a> </div>
               <div class="cnt">
                 <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo utf8_encode($mostrador['titulo']); ?></a></h4>
-                <p><?php $aux = utf8_encode($mostrador['detalle']); 
+                <p><?php $aux = $mostrador['detalle']; 
                         	$tam = strlen($aux);
                         	
                         	if ($tam > 99){
 
                         	for ($i = 0; $i <= 100; $i++) {
-    						echo $aux[$i];
+    						echo utf8_encode($aux[$i]);
 							}
 							echo "...";
 							}
