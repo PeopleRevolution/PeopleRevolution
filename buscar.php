@@ -59,7 +59,7 @@ if ($mostrador != ""){ $aux3 = "true";
               echo "...";
               }
               else {
-              echo $aux;
+              echo utf8_encode($aux);
               }?></p>
                 <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer Más</a></pre>
         <div id="m-soc2">
