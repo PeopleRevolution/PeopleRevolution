@@ -88,7 +88,7 @@ if($filas_tot !=0){
               echo "Comentario: ";
               echo utf8_encode($mostrador['com']);?>
               </div>
-			  <input type="button" style="margin-left:85%; margin-top:10px;" id="boton" value="Revolution" onclick="javascript: contador()" />
+			  <input type="button" id="boton" value="Revolution" onclick="javascript: contador()" />
 			  </td>
                 </tr>
               </table>
@@ -184,8 +184,7 @@ $aux = "true";
 <?php
 }
 ?>
-
-<div class="block">
+<div id="espacio" class="block">
       <div class="block-bot">
           <div class="head">
             <div class="head-cnt">
