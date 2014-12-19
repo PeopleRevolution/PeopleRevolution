@@ -415,7 +415,7 @@ btn.value = "Revolution (" + i + ")";
 }
 
 
-$('#sort-nav ul a').click(function(){
+$('#sort-nav ul').click(function(){
   $('#sort-nav a').removeClass('first active first-active');
   $(this).addClass('first active first-active');
 });
