@@ -43,9 +43,6 @@ $resultado = mysql_query ("SELECT * FROM noticia where tipo='$tipo' ORDER BY fec
 if ($mostrador != ""){ $aux3 = "true";
 {  ?>
      
-  
-           
-
             <div class="article">
               <div class="cl">&nbsp;</div>
               <div class="image"> <a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php
