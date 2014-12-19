@@ -18,7 +18,7 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <!--[if IE 6]><link rel="stylesheet" href="css/ie6-style.css" type="text/css" media="all" /><![endif]-->
-<script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="js/fns.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/ajax.js"></script>
 <script src="js/ckeditor.js"></script>
@@ -58,13 +58,14 @@ $resultado2 = mysql_query ("SELECT * FROM comentarios order by fecha desc limit 
 
     </div>
     <!-- / Logo -->
-    <!-- Main Navigation --><!-- / Main Navigation -->
+    <!-- Main Navigation -->
+    <!-- / Main Navigation -->
     <div class="cl">&nbsp;</div>
     <!-- Sort Navigation -->
     <div id="sort-nav">
       <div class="bg-right">
         <div class="bg-left">
-          <div class="cl">&nbsp;</div>
+          <div class="cl"></div>
           <ul>
             <li class="first active first-active"><a href="javascript:Enviar('inicio.php','contenido','4')">Inicio</a><span class="sep">&nbsp;</span></li>
             <li><a href="javascript:Enviar('seccion.php?tipo=n','contenido')">Noticias </a><span class="sep">&nbsp;</span></li>
