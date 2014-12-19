@@ -1,7 +1,6 @@
 <?php
 require('../conexion.php');
-user_login();
-require('../config.php');
+@user_login();
 require('funciones.php');
 
 $id = $_GET["id"];
