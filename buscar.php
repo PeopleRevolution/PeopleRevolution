@@ -1,5 +1,7 @@
-<?php 
-require("config.php"); 
+﻿<?php 
+@ob_start("ob_gzhandler");
+include_once("config.php");
+@mysql_query("SET NAMES 'utf8'"); 
 include("paginator.php");
 $buscar= $_GET['criterio'];
 $conex = mysql_connect ("$servidor","$usuario","$password"); 
@@ -45,19 +47,19 @@ if ($mostrador != ""){ $aux3 = "true";
               <div class="image"> <a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php
                       echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto añadido\"  width=\"194\" height=\"99\"  class=alignleft >"; ?></a> </div>
               <div class="cnt">
-                <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo $mostrador['titulo']; ?></a></h4>
+                <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo utf8_encode($mostrador['titulo']); ?></a></h4>
                 <p><?php $aux = $mostrador['detalle']; 
                           $tam = strlen($aux);
                           
                           if ($tam > 99){
 
                           for ($i = 0; $i <= 100; $i++) {
-                echo $aux[$i];
+                echo tf8_encode($aux[$i]);
               }
               echo "...";
               }
               else {
-              echo $aux;
+              echo utf8_encode($aux);
               }?></p>
                 <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer Más</a></pre>
         <div id="m-soc2">
