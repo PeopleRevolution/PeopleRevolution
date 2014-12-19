@@ -413,3 +413,12 @@ i = i + 1;
 var btn = document.getElementById("boton");
 btn.value = "Revolution (" + i + ")";
 }
+
+function() {
+ $("#sort-nav a").click(function(){
+       $("#sort-nav lu a").removeClass("first active first-active");
+      //"this" is the element clicked on
+     $(this).addClass("first-active");
+ });
+ });
+
