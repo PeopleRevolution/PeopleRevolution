@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
     include_once("config.php"); 
 $conex = mysql_connect ("$servidor","$usuario","$password"); 
 if (!$conex) 
@@ -25,61 +25,24 @@ $resultado = mysql_query ("SELECT * FROM noticia order by top desc LIMIT $start,
             </div>
           </div>
           <div class="row-articles articles">
-          
-            <?php      
-            if ($aux !=0){
-if(($start + 5) < $filas_tot)
-   {
-?>    <a href="javascript:Enviar('topn.php?start=<?php echo ($start + 5); ?>','contenido');">P‡gina anterior</a>
-	  
-      <?php
-   }
-
-   if($start > 0)
-   {
-	   ?>
-	<a href="javascript:Enviar('topn.php?start=<?php echo ($start - 5); ?>','contenido');">P‡gina siguiente</a>
-<?php
-   }
-
- 
-    echo "<br>";
-   echo "<b>";
-   echo "P‡gina: ";
-   echo "</b>";
-   $aux2= ($start/5) + 1;
-   echo"$aux2";
-   echo "<b>";
-   echo " de ";
-   echo "</b>";
-   echo "$aux";
-   echo "</br>";
-     echo "<br>";
-
+<?php      
+if ($aux !=0){
             
-            while($mostrador = mysql_fetch_array($resultado)) 
+while($mostrador = mysql_fetch_array($resultado)) 
 if ($mostrador != ""){ $aux = "true";
 {  ?>
-     
-  
-           
-
-            <div class="article">
+     <div class="article">
               <div class="cl">&nbsp;</div>
               <div class="image"> <a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php
-                      echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto añadido\"  width=\"194\" height=\"99\"  class=alignleft >"; ?></a> </div>
+                      echo "<img src=images_bd.php?id=$mostrador[id]&tam=2&aux=noticia alt=\"Imagen descriptiva del ultimo producto aÃ±adido\"  width=\"194\" height=\"99\"  class=alignleft >"; ?></a> </div>
               <div class="cnt">
-                <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo $mostrador['titulo']; ?></a></h4>
-                <p><?php echo $mostrador['detalle']; ?></p>
-                <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer Más</a></pre>
+                <h4><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');"><?php echo echo utf8_encode(($mostrador['titulo']); ?></a></h4>
+                <p><?php echo echo utf8_encode($mostrador['detalle']); ?></p>
+                <pre><a href="javascript:Enviar('detalle.php?id=<?php echo $mostrador['id']; ?>','contenido');" class="description">Leer MÃ¡s</a></pre>
               </div>
               <div class="cl">&nbsp;</div>
             </div>
             
-            
-            
-      
-
     <?php 
 }
 echo "<br>";
