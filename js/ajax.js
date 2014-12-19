@@ -414,9 +414,9 @@ var btn = document.getElementById("boton");
 btn.value = "Revolution (" + i + ")";
 }
 
-/*
-$('#sort-nav lu a').click(function(){
-  $('#sort-nav lu').removeClass('first active first-active');
+
+$('#sort-nav ul a').click(function(){
+  $('#sort-nav a').removeClass('first active first-active');
   $(this).addClass('first active first-active');
-});*/
+});
 
