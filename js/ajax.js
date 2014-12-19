@@ -81,7 +81,7 @@ function foro() {
    url=ruta+"?"+envio0+"&"+envio1+"&"+envio2; //url para enviar
    ajax1=new ObjetoAjax; //instanciar objeto ObjetoAjax;
    ajax1.pedirTexto(url,"contenido"); //mÈtodo que devuelve texto en un id.
-   //setTimeout("Enviar('./foro/index.php','contenido')",1000);
+   setTimeout("Enviar('./foro/index.php','contenido')",1000);
    }
    
    function registro() {
