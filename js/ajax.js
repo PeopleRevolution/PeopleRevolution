@@ -420,5 +420,4 @@ $('#sort-nav lu').click(function() {
         $('#menu li a').removeClass('first active first-active');
         // add active class
         $(this).addClass(''first active first-active');
-        ...
  });
